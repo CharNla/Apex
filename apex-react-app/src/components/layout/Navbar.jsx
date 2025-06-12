@@ -14,12 +14,12 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const activeLinkStyle = {
-        color: '5244A5', // purple-400
+        color: '#B356C1',
     };
 
     return (
-        <header className="bg-[#2a2a2e] text-gray-300 shadow-sm sticky top-0 z-50 border-b border-gray-700">
-            <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
+        <header className="font-sans bg-[#2a2a2e] text-gray-300 shadow-sm sticky top-0 z-50 border-b border-gray-700">
+            <nav className="container mx-auto px-10 py-3 flex justify-between items-center">
                 <div className="flex items-center">
                     {/* Logo */}
                     <NavLink to="/" className="flex items-center">
@@ -75,4 +75,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar; 
+export default Navbar;

@@ -16,35 +16,36 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
   return (
-    <div className="relative w-full bg-white">
-      <div className="relative w-full min-h-[600px] h-screen overflow-hidden">
-        {banners.map((banner, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              currentBanner === index ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <div className="w-full h-full flex items-center justify-center bg-white">
-              <img
-                src={banner}
-                alt={`Banner ${index + 1}`}
-                className="w-full max-h-screen object-contain"
-              />
-            </div>
-          </div>
-        ))}
-
-        {/* Navigation dots */}
-        <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-          {banners.map((_, index) => (
-            <button
+    <div className="relative w-full overflow-hidden bg-[#1E1B3C]">
+      <div className="container mx-auto">
+        <div className="relative w-full h-[calc(100vh-48px)]">
+          {banners.map((banner, index) => (
+            <div
               key={index}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                currentBanner === index ? 'bg-white' : 'bg-white/50'
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                currentBanner === index ? 'opacity-100' : 'opacity-0'
               }`}
-              onClick={() => setCurrentBanner(index)}
-            />
+            >
+              <div className="w-full h-full flex items-start justify-center relative">
+                <img
+                  src={banner}
+                  alt={`Banner ${index + 1}`}
+                  className="max-w-full max-h-full object-contain"
+                />
+                {/* Navigation dots - moved inside the banner container */}
+                <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20 px-4 py-2 rounded-full">
+                  {banners.map((_, dotIndex) => (
+                    <button
+                      key={dotIndex}
+                      className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                        currentBanner === dotIndex ? 'bg-[#B05AE7]' : 'bg-white/60'
+                      } hover:bg-[#B05AE7]`}
+                      onClick={() => setCurrentBanner(dotIndex)}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
