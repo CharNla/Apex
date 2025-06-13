@@ -6,6 +6,7 @@ import banner3 from '../assets/img/banner3.png';
 import bg1 from '../assets/img/พื้นหลังพญานาค.png';
 import bg2 from '../assets/img/bg2.png';
 import ApexCircle from '../components/ui/Apexcircle';
+import flow from '../assets/img/flow.png';
 
 const banners = [banner1, banner2, banner3];
 
@@ -105,7 +106,8 @@ const HeroSection = () => {
               src={bg2}
               alt="bg2"
               className="w-full h-auto object-contain"
-            />            {/* IT Infrastructure Section */}            <div className="absolute top-[65%] md:top-[14%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 md:px-0 w-full">
+            />            {/* IT Infrastructure Section */}
+            <div className="absolute top-[65%] md:top-[14%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 md:px-0 w-full">
               <h1 className="text-xl md:text-5xl font-bold text-white mb-3 md:mb-6">IT Infrastructure</h1>
               <div>
                 <p className="text-xs md:text-base text-gray-300 max-w-7xl mx-auto leading-normal md:leading-relaxed">
@@ -118,8 +120,41 @@ const HeroSection = () => {
             </div>
           </div>
       {/* Monitoring Section */}
-      <div className="w-full relative">  
-        
+      <div className="relative w-full bg-white">
+        <img
+          src={bg2}
+          alt=""
+          aria-hidden="true"
+          className="invisible h-auto w-full object-contain"
+        />
+        <div className="absolute inset-0 flex flex-col items-center pt-[5%]">
+          <div className="w-full px-4 text-center md:px-0">
+            <h2 className="mb-3 text-xl font-bold text-black md:mb-6 md:text-5xl">
+              Monitoring
+            </h2>
+            <div>
+              <p className="mx-auto max-w-7xl text-xs leading-normal text-gray-600 md:text-base md:leading-relaxed">
+                Monitoring Tool หรือระบบตรวจสอบสถานะการทำงานของอุปกรณ์ เป็นเครื่องมือหรือโปรแกรมที่ใช้ในการติดตามและตรวจสอบสถานะของอุปกรณ์ต่างๆ ทางด้านไอที
+              </p>
+              <p className="mx-auto max-w-7xl text-xs leading-normal text-gray-600 md:text-base md:leading-relaxed">
+                ไม่ว่าจะเป็น Server, Cloud, Network, Hardware ต่างๆ รวมถึงอุปกรณ์ IOT และ Application Service ต่างๆ
+              </p>
+              <p className="mx-auto max-w-7xl text-xs leading-normal text-gray-600 md:text-base md:leading-relaxed">
+                โดยทั่วไปมักใช้สำหรับเฝ้าดูสถานะการดำเนินการของระบบ นอกจากนี้ยังช่วยในการตรวจจับปัญหาที่เกิดขึ้นก่อนที่จะส่งผลกระทบต่อผู้ใช้งานหรือธุรกิจ
+              </p>
+              <p className="mx-auto max-w-7xl text-xs leading-normal text-gray-600 md:text-base md:leading-relaxed">
+                คุณสมบัติของ Monitoring Tool ประกอบไปด้วย :
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 flex w-full max-w-5xl items-center justify-center">
+            <img
+              src={flow}
+              alt="Monitoring Flow"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
