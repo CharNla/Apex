@@ -19,8 +19,7 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  return (
-    <div className="relative w-full overflow-hidden bg-[#1E1B3C]">
+  return (    <div className="relative w-full overflow-hidden bg-[#1E1B3C] font-sans">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
