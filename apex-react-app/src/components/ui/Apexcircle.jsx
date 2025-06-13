@@ -20,7 +20,7 @@ const ApexCircle = ({ className }) => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       {/* Main "Apex" Circle */}
-      <motion.div className="relative w-full h-full rounded-full flex items-center justify-center overflow-hidden playing bg-purple-200">
+      <motion.div className="relative w-[40%] aspect-square md:w-full md:h-full rounded-full flex items-center justify-center overflow-hidden playing bg-purple-200">
         <div className="wave"></div>
         <div className="wave"></div>
         <div className="wave"></div>
@@ -29,7 +29,7 @@ const ApexCircle = ({ className }) => {
 
       {/* Small Bubbles */}
       <motion.div
-        className="absolute top-0 left-0 w-16 h-16 md:top-[-10%] md:left-[5%] md:w-40 md:h-40"
+        className="absolute top-[20%] left-[20%] w-16 h-16 md:top-[5%] md:left-[-2%] md:w-40 md:h-40"
         initial={{ scale: 0, y: 50 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ delay: 0.2, type: 'spring' }}
@@ -40,7 +40,7 @@ const ApexCircle = ({ className }) => {
       </motion.div>
 
       <motion.div
-        className="absolute top-[5%] right-[-5%] w-16 h-16 md:top-[5%] md:right-[-15%] md:w-40 md:h-40"
+        className="absolute top-[10%] right-[25%] w-16 h-16 md:top-[-5%] md:right-[1%] md:w-40 md:h-40"
         initial={{ scale: 0, y: 50 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ delay: 0.4, type: 'spring' }}
@@ -51,7 +51,7 @@ const ApexCircle = ({ className }) => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 right-[5%] w-16 h-16 md:bottom-[-5%] md:right-[15%] md:w-40 md:h-40"
+        className="absolute bottom-[3%] right-[25%] w-16 h-16 md:bottom-[1%] md:right-[1%] md:w-40 md:h-40"
         initial={{ scale: 0, y: -50 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ delay: 0.6, type: 'spring' }}

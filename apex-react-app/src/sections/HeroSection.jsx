@@ -117,6 +117,10 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
+      {/* Monitoring Section */}
+      <div className="w-full relative">  
+        
+      </div>
     </div>
   );
 };
