@@ -26,7 +26,7 @@ const HeroSection = () => {
         animate={{ opacity: 1 }}
         className="container mx-auto flex flex-col"
       >
-        <div className="relative w-full h-[calc(100vh-48px)]">
+        <div className="relative w-full h-[45vh] md:h-[calc(100vh-48px)]">
           <AnimatePresence mode="wait">
             {banners.map((banner, index) =>
               currentBanner === index ? (
@@ -77,7 +77,7 @@ const HeroSection = () => {
         </div>
 
         <motion.div
-          className="w-full -mt-48 relative flex justify-center items-center"
+          className="w-full -mt-40 md:-mt-48 relative flex justify-center items-center"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
