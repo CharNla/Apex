@@ -24,15 +24,19 @@
 
 .playing .wave {
   animation-name: wave;
-  animation-duration: 3000ms;
+  animation-duration: 8000ms;
 }
 
 .playing .wave:nth-child(2) {
-  animation-duration: 4000ms;
+  animation-duration: 10000ms;
 }
 
 .playing .wave:nth-child(3) {
-  animation-duration: 5000ms;
+  animation-duration: 12000ms;
+}
+
+.paused .wave {
+  animation-play-state: paused;
 }
 
 @keyframes wave {
@@ -41,6 +45,6 @@
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
 } 

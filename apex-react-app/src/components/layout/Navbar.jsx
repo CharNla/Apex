@@ -53,24 +53,22 @@ const Navbar = () => {
             </nav>
 
             {/* Mobile Menu */}
-            {isMenuOpen && (
-                <div className="md:hidden bg-[#2a2a2e] border-t border-gray-700">
-                    <ul className="flex flex-col items-center space-y-4 py-4">
-                        {navLinks.map((link) => (
-                            <li key={link.title}>
-                                <NavLink
-                                    to={link.path}
-                                    style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
-                                    className="hover:text-purple-400 transition-colors duration-300 text-lg"
-                                    onClick={() => setIsMenuOpen(false)} // Close menu on link click
-                                >
-                                    {link.title}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+            <div className={`md:hidden bg-[#2a2a2e] border-t border-gray-700 overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
+                <ul className="flex flex-col items-center space-y-4 py-4">
+                    {navLinks.map((link) => (
+                        <li key={link.title}>
+                            <NavLink
+                                to={link.path}
+                                style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+                                className="hover:text-purple-400 transition-colors duration-300 text-lg"
+                                onClick={() => setIsMenuOpen(false)} // Close menu on link click
+                            >
+                                {link.title}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </header>
     );
 };

@@ -105,13 +105,13 @@ const HeroSection = () => {
               src={bg2}
               alt="bg2"
               className="w-full h-auto object-contain"
-            />            {/* IT Infrastructure Section */}            <div className="absolute top-[50%] md:top-[14%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 md:px-0 w-full">
-              <h1 className="text-2xl md:text-5xl font-bold text-white mb-3 md:mb-6">IT Infrastructure</h1>
+            />            {/* IT Infrastructure Section */}            <div className="absolute top-[65%] md:top-[14%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 md:px-0 w-full">
+              <h1 className="text-xl md:text-5xl font-bold text-white mb-3 md:mb-6">IT Infrastructure</h1>
               <div>
-                <p className="text-xs md:text-base text-gray-300 max-w-7xl mx-auto leading-relaxed">
+                <p className="text-xs md:text-base text-gray-300 max-w-7xl mx-auto leading-normal md:leading-relaxed">
                   ที่ปรึกษาด้าน IT Infrastructure: ทีมผู้เชี่ยวชาญพร้อมให้คำปรึกษา วิเคราะห์ความต้องการ และวางแผนเพื่อสร้างระบบ IT มุ่งเน้นการออกแบบและพัฒนา
                 </p>
-                <p className="text-xs md:text-base text-gray-300 max-w-7xl mx-auto leading-relaxed">
+                <p className="text-xs md:text-base text-gray-300 max-w-7xl mx-auto leading-normal md:leading-relaxed">
                   ทั้งในส่วนของHardware Software และระบบ Network ให้สามารถรองรับการขยายตัวในอนาคตหรือการปรับตัวให้เข้ากับเทคโนโลยีใหม่ ๆ
                 </p>
               </div>

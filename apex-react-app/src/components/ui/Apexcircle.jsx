@@ -24,40 +24,40 @@ const ApexCircle = ({ className }) => {
         <div className="wave"></div>
         <div className="wave"></div>
         <div className="wave"></div>
-        <h1 className="text-6xl md:text-8xl font-bold text-white z-10">Apex</h1>
+        <h1 className="text-4xl md:text-8xl font-bold text-white z-10">Apex</h1>
       </motion.div>
 
       {/* Small Bubbles */}
       <motion.div
-        className="absolute top-[-10%] left-[5%] w-32 h-32 md:w-40 md:h-40"
+        className="absolute top-0 left-0 w-16 h-16 md:top-[-10%] md:left-[5%] md:w-40 md:h-40"
         initial={{ scale: 0, y: 50 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ delay: 0.2, type: 'spring' }}
       >
         <Bubble>
-          <span className="text-sm md:text-base font-semibold">Software<br/>House</span>
+          <span className="text-[8px] md:text-sm font-semibold">Software<br/>House</span>
         </Bubble>
       </motion.div>
 
       <motion.div
-        className="absolute top-[5%] right-[-15%] w-32 h-32 md:w-40 md:h-40"
+        className="absolute top-[5%] right-[-5%] w-16 h-16 md:top-[5%] md:right-[-15%] md:w-40 md:h-40"
         initial={{ scale: 0, y: 50 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ delay: 0.4, type: 'spring' }}
       >
         <Bubble>
-          <span className="text-sm md:text-base font-semibold">IT<br/>Infrastructure</span>
+          <span className="text-[8px] md:text-sm font-semibold">IT<br/>Infrastructure</span>
         </Bubble>
       </motion.div>
 
       <motion.div
-        className="absolute bottom-[-5%] right-[15%] w-32 h-32 md:w-40 md:h-40"
+        className="absolute bottom-0 right-[5%] w-16 h-16 md:bottom-[-5%] md:right-[15%] md:w-40 md:h-40"
         initial={{ scale: 0, y: -50 }}
         animate={{ scale: 1, y: 0 }}
         transition={{ delay: 0.6, type: 'spring' }}
       >
         <Bubble>
-          <span className="text-sm md:text-base font-semibold">Monitoring</span>
+          <span className="text-[8px] md:text-sm font-semibold">Monitoring</span>
         </Bubble>
       </motion.div>
     </motion.div>
