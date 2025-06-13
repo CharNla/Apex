@@ -5,7 +5,7 @@ import banner2 from '../assets/img/banner2.png';
 import banner3 from '../assets/img/banner3.png';
 import bg1 from '../assets/img/พื้นหลังพญานาค.png';
 import bg2 from '../assets/img/bg2.png';
-import apex from '../assets/img/ปีศาจมาร.png';
+import ApexCircle from '../components/ui/Apexcircle';
 
 const banners = [banner1, banner2, banner3];
 
@@ -96,13 +96,7 @@ const HeroSection = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            <motion.img
-              src={apex}
-              alt="Apex"
-              className="w-[250px] md:w-[800px] h-auto"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            />
+            <ApexCircle className="w-[180px] h-[180px] md:w-[500px] md:h-[500px]" />
           </motion.div>
         </motion.div>
       </motion.div>
