@@ -3,7 +3,7 @@ import './wave.css';
 
 const Bubble = ({ children }) => (
   <motion.div
-    className={`w-full h-full flex items-center justify-center text-center p-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-lg`}
+    className={`w-full h-full flex items-center justify-center text-center p-4 rounded-full bg-gradient-to-br from-purple-600 to-pink-300 text-white shadow-lg`}
     whileHover={{ scale: 1.1 }}
     transition={{ type: 'spring', stiffness: 300 }}
   >
