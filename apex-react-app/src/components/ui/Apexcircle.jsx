@@ -20,7 +20,7 @@ const ApexCircle = ({ className }) => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       {/* Main "Apex" Circle */}
-      <motion.div className="relative w-full h-full rounded-full flex items-center justify-center overflow-hidden playing bg-purple-300">
+      <motion.div className="relative w-full h-full rounded-full flex items-center justify-center overflow-hidden playing bg-purple-200">
         <div className="wave"></div>
         <div className="wave"></div>
         <div className="wave"></div>
