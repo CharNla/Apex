@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins'],
+        sans: ['Prompt', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         'light-lavender': '#F2EEF8',
