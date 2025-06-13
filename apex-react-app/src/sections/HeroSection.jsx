@@ -4,6 +4,7 @@ import banner1 from '../assets/img/banner1.png';
 import banner2 from '../assets/img/banner2.png';
 import banner3 from '../assets/img/banner3.png';
 import bg1 from '../assets/img/พื้นหลังพญานาค.png';
+import bg2 from '../assets/img/พื้นหลัง2.png';
 import apex from '../assets/img/ปีศาจมาร.png';
 
 const banners = [banner1, banner2, banner3];
@@ -19,8 +20,7 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  return (
-    <div className="relative w-full overflow-hidden bg-[#1E1B3C]">
+  return (    <div className="relative w-full overflow-hidden bg-[#1E1B3C] font-sans">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
