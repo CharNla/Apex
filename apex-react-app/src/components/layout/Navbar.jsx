@@ -4,7 +4,7 @@ import logo from '../../assets/icon/iconapex.svg';
 
 const navLinks = [
     { title: 'หน้าแรก', path: '/' },
-    { title: 'บริการของเรา', path: '/services' },
+    { title: 'บริการของเรา', path: '/#services' },
     { title: 'ผลงานของเรา', path: '/portfolio' },
     { title: 'บทความ', path: '/blog' },
     { title: 'ติดต่อเรา', path: '/contact' },
@@ -32,6 +32,7 @@ const Navbar = () => {
                             <li key={link.title}>
                                 <NavLink
                                     to={link.path}
+                                    end={link.path === '/'}
                                     style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
                                     className="hover:text-purple-400 transition-colors duration-300 text-lg"
                                 >
