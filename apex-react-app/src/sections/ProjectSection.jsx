@@ -10,7 +10,7 @@ const ProjectSection = () => {
   const handleResetZoom = () => setScale(1);
 
   return (
-    <div id="portfolio" className="bg-white pt-16 relative font-sans">
+    <div id="portfolio" className="bg-white pt-16 relative font-sans animate-in fade-in slide-in-from-bottom-10 duration-700">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Ours Project</h2>
         <p className="text-gray-600 max-w-2xl mx-auto mb-8">

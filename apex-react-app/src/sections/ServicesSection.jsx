@@ -86,7 +86,7 @@ const ServicesSection = () => {
       style={{ backgroundImage: `url(${ServicesBg})` }}
     >
       <div className="flex items-center justify-end min-h-screen">
-        <div className="w-full max-w-xl p-4 md:p-8 md:mr-60">
+        <div className="w-full max-w-xl p-4 md:p-8 md:mr-60 animate-in fade-in slide-in-from-bottom-10 duration-700">
             <h2 className="text-2xl md:text-4xl font-bold text-white text-left mb-6 md:mb-10">
                 Software House Detail
             </h2>

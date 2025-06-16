@@ -175,116 +175,166 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </motion.div>
-      <div className="w-full relative">
-            <img
-              src={bg2}
-              alt="bg2"
-              className="w-full h-auto object-contain"
-            />            {/* IT Infrastructure Section */}
-            <div className="absolute top-[65%] md:top-[14%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 md:px-0 w-full">
-              <h1 className="text-xl md:text-5xl font-bold text-white mb-3 md:mb-6">IT Infrastructure</h1>
-              <div>
-                <p className="text-xs md:text-base text-gray-300 max-w-7xl mx-auto leading-normal md:leading-relaxed">
-                  ที่ปรึกษาด้าน IT Infrastructure: ทีมผู้เชี่ยวชาญพร้อมให้คำปรึกษา วิเคราะห์ความต้องการ และวางแผนเพื่อสร้างระบบ IT มุ่งเน้นการออกแบบและพัฒนา
+      {/* IT Infrastructure Section */}
+      <div className="w-full py-12 md:py-20" style={{ backgroundImage: `url(${bg2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+               className="text-center"
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, amount: 0.5 }}
+               transition={{ duration: 0.8 }}
+            >
+               <h1 className="text-xl md:text-5xl font-bold text-white mb-3 md:mb-6">IT Infrastructure</h1>
+              <div className="max-w-7xl mx-auto">
+                <p className="text-xs md:text-base text-gray-300 leading-normal md:leading-relaxed">
+                  ที่ปรึกษาด้าน IT Infrastructure: ทีมผู้เชี่ยวชาญพร้อมให้คำปรึกษา วิเคราะห์ความต้องการ และวางแผนเพื่อสร้างระบบ ITมุ่งเน้นการออกแบบและพัฒนา
                 </p>
-                <p className="text-xs md:text-base text-gray-300 max-w-7xl mx-auto leading-normal md:leading-relaxed">
+                <p className="text-xs md:text-base text-gray-300 leading-normal md:leading-relaxed">
                   ทั้งในส่วนของHardware Software และระบบ Network ให้สามารถรองรับการขยายตัวในอนาคตหรือการปรับตัวให้เข้ากับเทคโนโลยีใหม่ ๆ
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Images */}
-            <div className="absolute top-[60%] left-0 transform -translate-y-1/2 pl-[0.7rem] md:pl-[12.7rem]">
-              <div className="flex flex-col items-start gap-8">
-                {/* Top Row */}
-                <div className="flex items-stretch gap-4">
-                  {/* Tech Image with Text Overlay */}
-                  <div className="relative w-full max-w-[630px] rounded-lg shadow-2xl overflow-hidden">
-                    <img src={ITimg1} alt="Tech" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white">
-                      <h2 className="text-2xl md:text-3xl font-bold">การออกแบบระบบ</h2>
-                      <h2 className="text-2xl md:text-3xl font-bold">Server</h2>
-                      <p className="mt-2 text-sm md:text-base font-light text-gray-300 max-w-md">
-                        วางแผนและออกแบบระบบ Server ให้รองรับงานที่มีปริมาณการใช้งานสูง และสามารถขยายระบบได้ตามความต้องการของธุรกิจ
-                      </p>
-                    </div>
-                  </div>
-                  {/* Cloud Image with Text Overlay */}
-                  <div className="relative w-full max-w-[420px] rounded-lg shadow-2xl overflow-hidden">
-                    <img src={ITimg2} alt="Cloud" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white w-full">
-                      <h2 className="text-xl md:text-2xl font-bold">การออกแบบ</h2>
-                      <h2 className="text-xl md:text-2xl font-bold">Cloud Computing</h2>
-                      <ul className="mt-2 space-y-2 text-xs md:text-sm font-light text-gray-200">
-                        <li className="flex gap-2">
-                          <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-300"></span>
-                          <span>ออกแบบระบบที่ผสานรวมระหว่าง Cloud Public, Private หรือ Hybrid Cloud เพื่อลดต้นทุนและเพิ่มความยืดหยุ่นในการปรับทรัพยากรให้สอดคล้องกับความต้องการ</span>
-                        </li>
-                        <li className="flex gap-2">
-                          <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-300"></span>
-                          <span>ให้คำแนะนำในการป้องกันการจู่โจมและการบริหารจัดการข้อมูลบนระบบ Cloud อย่างมีประสิทธิภาพ</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                {/* Bottom Row */}
-                <div className="flex items-stretch gap-5">
-                  {/* serverRoomImage with Text Overlay */}
-                  <div className="relative w-full max-w-[340px] h-full rounded-lg shadow-2xl overflow-hidden">
-                    <img src={ITimg3} alt="Server Room" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
-                      <h2 className="text-xl font-bold">การออกแบบ</h2>
-                      <h2 className="text-xl font-bold">Data Center</h2>
-                      <p className="mt-2 text-xs md:text-sm font-light text-gray-200">
-                        ให้คำปรึกษาด้านการบริหารจัดการ การวางแผน ออกแบบ รวมถึงการบำรุงรักษา Data Center เพื่อรองรับ Power Backup, ระบบรักษาความปลอดภัย รวมถึงความต่อเนื่องของการให้บริการที่ไม่สะดุด
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* grayImage with Text Overlay */}
-                  <div className="relative w-full max-w-[340px] h-full rounded-lg shadow-2xl overflow-hidden">
-                    <img src={ITimg4} alt="Gray" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
-                      <h2 className="text-xl font-bold">Network</h2>
-                      <h2 className="text-xl font-bold">Infrastructure</h2>
-                      <ul className="mt-2 space-y-2 text-xs md:text-sm font-light text-gray-200">
-                        <li className="flex gap-2">
-                          <span className="mt-1.5 block h-1 w-1 flex-shrink-0 rounded-full bg-gray-300"></span>
-                          <span>ออกแบบและตั้งระบบเครือข่ายที่ครอบคลุมและปลอดภัย ทั้งในส่วนของ LAN, WAN และ Internet Connectivity</span>
-                        </li>
-                        <li className="flex gap-2">
-                          <span className="mt-1.5 block h-1 w-1 flex-shrink-0 rounded-full bg-gray-300"></span>
-                          <span>ให้คำแนะนำในการเลือกใช้ Firewall, VPN และระบบโทรศัพท์เพื่อบ่งชี้การแก้ไขให้ตรงประสงค์</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* engineerImage with Text Overlay */}
-                  <div className="relative w-full max-w-[340px] h-full rounded-lg shadow-2xl overflow-hidden">
-                    <img src={ITimg5} alt="Engineer" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                    <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
-                      <h2 className="text-xl font-bold">จำหน่ายและติดตั้งอุปกรณ์</h2>
-                      <h2 className="text-xl font-bold">Server</h2>
-                      <p className="mt-2 text-xs md:text-sm font-light text-gray-200">
-                        บริการให้เช่าอุปกรณ์ Server เรามีทีมผู้เชี่ยวชาญให้คำปรึกษาและติดตั้งอุปกรณ์ให้ตรงกับความต้องการของธุรกิจ พร้อมทั้งทดสอบและให้คำแนะนำเพื่อให้ได้ประสิทธิภาพ
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            {/* Images Grid */}
+            <div className="mt-12 space-y-4">
+               {/* Top Row */}
+              <motion.div
+                 className="grid grid-cols-1 md:grid-cols-5 gap-4"
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={{ once: true, amount: 0.3 }}
+                 transition={{ staggerChildren: 0.2 }}
+              >
+                {/* Tech Image with Text Overlay (Span 3 cols) */}
+                <motion.div
+                   className="relative md:col-span-3 rounded-lg shadow-2xl overflow-hidden"
+                   variants={{
+                     hidden: { opacity: 0, y: 20 },
+                     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                   }}
+                >
+                   <img src={ITimg1} alt="Tech" className="w-full h-full object-cover" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                   <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white">
+                     <h2 className="text-2xl md:text-3xl font-bold">การออกแบบระบบ</h2>
+                     <h2 className="text-2xl md:text-3xl font-bold">Server</h2>
+                     <p className="mt-2 text-sm md:text-base font-light text-gray-300 max-w-md">
+                       วางแผนและออกแบบระบบ Server ให้รองรับงานที่มีปริมาณการใช้งานสูง และสามารถขยายระบบได้ตามความต้องการของธุรกิจ
+                     </p>
+                   </div>
+                </motion.div>
+                {/* Cloud Image with Text Overlay (Span 2 cols) */}
+                <motion.div
+                   className="relative md:col-span-2 rounded-lg shadow-2xl overflow-hidden"
+                   variants={{
+                     hidden: { opacity: 0, y: 20 },
+                     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                   }}
+                >
+                   <img src={ITimg2} alt="Cloud" className="w-full h-full object-cover" />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                   <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white w-full">
+                     <h2 className="text-xl md:text-2xl font-bold">การออกแบบ</h2>
+                     <h2 className="text-xl md:text-2xl font-bold">Cloud Computing</h2>
+                     <ul className="mt-2 space-y-2 text-xs md:text-sm font-light text-gray-200">
+                       <li className="flex gap-2">
+                         <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-300"></span>
+                         <span>ออกแบบระบบที่ผสานรวมระหว่าง Cloud Public, Private หรือ Hybrid Cloud เพื่อลดต้นทุนและเพิ่มความยืดหยุ่นในการปรับทรัพยากรให้สอดคล้องกับความต้องการ</span>
+                       </li>
+                       <li className="flex gap-2">
+                         <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-300"></span>
+                         <span>ให้คำแนะนำในการป้องกันการจู่โจมและการบริหารจัดการข้อมูลบนระบบ Cloud อย่างมีประสิทธิภาพ</span>
+                       </li>
+                     </ul>
+                   </div>
+                </motion.div>
+              </motion.div>
+               {/* Bottom Row */}
+               <motion.div
+                  className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ staggerChildren: 0.2 }}
+               >
+                    {/* serverRoomImage with Text Overlay */}
+                   <motion.div
+                      className="relative rounded-lg shadow-2xl overflow-hidden"
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                      }}
+                   >
+                      <img src={ITimg3} alt="Server Room" className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                      <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
+                        <h2 className="text-xl font-bold">การออกแบบ</h2>
+                        <h2 className="text-xl font-bold">Data Center</h2>
+                        <p className="mt-2 text-xs md:text-sm font-light text-gray-200">
+                          ให้คำปรึกษาด้านการบริหารจัดการ การวางแผน ออกแบบ รวมถึงการบำรุงรักษา Data Center เพื่อรองรับ Power Backup, ระบบรักษาความปลอดภัย รวมถึงความต่อเนื่องของการให้บริการที่ไม่สะดุด
+                        </p>
+                      </div>
+                   </motion.div>
+ 
+                    {/* grayImage with Text Overlay */}
+                   <motion.div
+                      className="relative rounded-lg shadow-2xl overflow-hidden"
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                      }}
+                   >
+                      <img src={ITimg4} alt="Gray" className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                      <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
+                        <h2 className="text-xl font-bold">Network</h2>
+                        <h2 className="text-xl font-bold">Infrastructure</h2>
+                        <ul className="mt-2 space-y-2 text-xs md:text-sm font-light text-gray-200">
+                          <li className="flex gap-2">
+                            <span className="mt-1.5 block h-1 w-1 flex-shrink-0 rounded-full bg-gray-300"></span>
+                            <span>ออกแบบและตั้งระบบเครือข่ายที่ครอบคลุมและปลอดภัย ทั้งในส่วนของ LAN, WAN และ Internet Connectivity</span>
+                          </li>
+                          <li className="flex gap-2">
+                            <span className="mt-1.5 block h-1 w-1 flex-shrink-0 rounded-full bg-gray-300"></span>
+                            <span>ให้คำแนะนำในการเลือกใช้ Firewall, VPN และระบบโทรศัพท์เพื่อบ่งชี้การแก้ไขให้ตรงประสงค์</span>
+                          </li>
+                        </ul>
+                      </div>
+                   </motion.div>
+ 
+                    {/* engineerImage with Text Overlay */}
+                   <motion.div
+                      className="relative rounded-lg shadow-2xl overflow-hidden"
+                      variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+                      }}
+                   >
+                      <img src={ITimg5} alt="Engineer" className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                      <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
+                        <h2 className="text-xl font-bold">จำหน่ายและติดตั้งอุปกรณ์</h2>
+                        <h2 className="text-xl font-bold">Server</h2>
+                        <p className="mt-2 text-xs md:text-sm font-light text-gray-200">
+                          บริการให้เช่าอุปกรณ์ Server เรามีทีมผู้เชี่ยวชาญให้คำปรึกษาและติดตั้งอุปกรณ์ให้ตรงกับความต้องการของธุรกิจ พร้อมทั้งทดสอบและให้คำแนะนำเพื่อให้ได้ประสิทธิภาพ
+                        </p>
+                      </div>
+                   </motion.div>
+               </motion.div>
               </div>
-            </div>
           </div>
+      </div>
       {/* Monitoring Section */}
       <div className="w-full bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="mb-3 text-xl font-bold text-black md:mb-6 md:text-5xl">
               Monitoring
             </h2>
@@ -296,17 +346,30 @@ const HeroSection = () => {
                 คุณสมบัติของ Monitoring Tool ประกอบไปด้วย :
               </p>
             </div>
-          </div>
-          <div className="mx-auto mt-4 flex w-full max-w-6xl items-center justify-center">
+          </motion.div>
+          <motion.div
+            className="mx-auto mt-4 flex w-full max-w-6xl items-center justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <img
               src={flow}
               alt="Monitoring Flow"
               className="h-auto w-full object-contain"
             />
-          </div>
+          </motion.div>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {monitoringItems.map((item) => (
-              <div key={item.title} className="flex items-start space-x-4">
+            {monitoringItems.map((item, i) => (
+              <motion.div
+                key={item.title}
+                className="flex items-start space-x-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
                 <img src={item.icon} alt="" className="w-16 h-16 flex-shrink-0 mt-1" />
                 <div className="text-left">
                   <h3 className="font-bold text-lg text-gray-800">{item.title}</h3>
@@ -324,10 +387,16 @@ const HeroSection = () => {
                     เพิ่มเติม
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-          <div className="mt-12 max-w-6xl mx-auto relative">
+          <motion.div
+            className="mt-12 max-w-6xl mx-auto relative"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.6 }}
+          >
             <img
               src={overviewMonitoring}
               alt="Overview Monitoring"
@@ -359,7 +428,7 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

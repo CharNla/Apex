@@ -57,11 +57,11 @@ const JournalSection = () => {
   return (
     <div 
       id="blog" 
-      className="bg-cover bg-center min-h-screen flex items-center"
+      className="bg-cover bg-center min-h-screen flex items-center animate-in fade-in slide-in-from-bottom-10 duration-700"
       style={{ backgroundImage: `url(${JournalBg})` }}
     >
       <div className="container mx-auto px-4 md:px-12 py-16">
-        <h2 className="text-4xl font-bold text-white mb-12 text-left">Journal</h2>
+        <h2 className="text-4xl font-bold text-white mb-12 text-left md:pl-28">Journal</h2>
         
         <div className="flex flex-wrap md:flex-nowrap justify-center gap-8">
           {journalData.map((post, index) => (
