@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import HomePage from '../pages/HomePage';
 import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
 
 const Layout = () => {
     const { pathname, hash } = useLocation();
@@ -24,7 +25,7 @@ const Layout = () => {
             <main>
                 <Outlet />
             </main>
-            {/* We can add a Footer here later */}
+            <Footer />
         </>
     );
 };
