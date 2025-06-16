@@ -1,0 +1,63 @@
+# 🚀 Apex React Application
+
+## 📝 รายละเอียดโครงการ
+โปรเจคนี้เป็น React Application ที่พัฒนาด้วย Vite และใช้ Tailwind CSS สำหรับการจัดการ styles
+
+## 💻 เทคโนโลยีที่ใช้
+- ⚛️ React
+- ⚡ Vite
+- 🎨 Tailwind CSS
+
+
+## 📁 โครงสร้างโปรเจค
+```
+apex-react-app/
+├── src/                    # โค้ดหลักของแอปพลิเคชัน
+│   ├── assets/            # ไฟล์สื่อต่างๆ เช่น รูปภาพ, ไอคอน
+│   ├── components/        # React Components ที่ใช้ร่วมกัน
+│   ├── pages/            # หน้าหลัก ของแอปพลิเคชัน
+│   ├── routes/           # การกำหนดเส้นทางของแอปพลิเคชัน
+│   ├── sections/         # ส่วนประกอบหลักของแต่ละหน้า
+│   ├── App.jsx           # Component หลักของแอปพลิเคชัน
+│   ├── main.jsx         # จุดเริ่มต้นของแอปพลิเคชัน
+│   └── index.css        # Global CSS styles
+├── public/               # ไฟล์ static ต่างๆ
+├── index.html           # HTML entry point
+├── package.json         # การกำหนดค่า dependencies และ scripts
+├── tailwind.config.js   # การกำหนดค่า Tailwind CSS
+├── postcss.config.js    # การกำหนดค่า PostCSS
+└── vite.config.js       # การกำหนดค่า Vite
+```
+
+## ⚙️ การติดตั้ง
+1. ติดตั้ง dependencies:
+```bash
+npm install
+```
+
+2. รันโปรเจคในโหมด development:
+```bash
+npm run dev
+```
+
+3. สร้างไฟล์สำหรับ production:
+```bash
+npm run build
+```
+
+## 👨‍💻 การพัฒนา
+- 🔄 ใช้ `npm run dev` เพื่อเริ่มต้น development server
+- 📝 แก้ไขโค้ดใน directory `src`
+- 🧩 เพิ่ม components ใหม่ใน directory `src/components`
+- 🛣️ จัดการ routing ใน directory `src/routes`
+- 📱 สร้างหน้าใหม่ใน directory `src/pages`
+
+## 🚀 การ Deploy
+1. 🔨 รัน `npm run build` เพื่อสร้างไฟล์สำหรับ production
+2. 📦 ไฟล์ที่ได้จะอยู่ใน directory `dist`
+3. 🌐 นำไฟล์จาก directory `dist` ไป deploy บน web server
+
+## 📌 หมายเหตุ
+- 🎨 ใช้ Tailwind CSS สำหรับการจัดการ styles
+- 🔧 มีการใช้ PostCSS สำหรับการประมวลผล CSS
+- ⚡ พัฒนาด้วย Vite เพื่อประสิทธิภาพที่ดีในการพัฒนา
