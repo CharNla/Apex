@@ -5,7 +5,7 @@ import logo from '/iconapex.png';
 const navLinks = [
     { title: 'หน้าแรก', path: '/' },
     { title: 'บริการของเรา', path: '/#services' },
-    { title: 'ผลงานของเรา', path: '/portfolio' },
+    { title: 'ผลงานของเรา', path: '/#portfolio' },
     { title: 'บทความ', path: '/blog' },
     { title: 'ติดต่อเรา', path: '/contact' },
 ];
