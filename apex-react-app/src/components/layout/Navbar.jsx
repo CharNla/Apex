@@ -6,7 +6,7 @@ const navLinks = [
     { title: 'หน้าแรก', path: '/' },
     { title: 'บริการของเรา', path: '/#services' },
     { title: 'ผลงานของเรา', path: '/#portfolio' },
-    { title: 'บทความ', path: '/blog' },
+    { title: 'บทความ', path: '/#blog' },
     { title: 'ติดต่อเรา', path: '/contact' },
 ];
 
