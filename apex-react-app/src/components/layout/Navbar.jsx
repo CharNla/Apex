@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/icon/iconapex.svg';
+import logo from '/iconapex.png';
 
 const navLinks = [
     { title: 'หน้าแรก', path: '/' },
