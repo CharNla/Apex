@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '/iconapex.png';
 
@@ -12,10 +12,39 @@ const navLinks = [
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeLink, setActiveLink] = useState('/');
 
     const activeLinkStyle = {
         color: '#B356C1',
     };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = navLinks
+                .map(link => link.path.split('#')[1])
+                .filter(Boolean);
+
+            let currentSectionId = '';
+            for (const id of sections) {
+                const section = document.getElementById(id);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - 150) {
+                        currentSectionId = id;
+                    }
+                }
+            }
+            
+            if (currentSectionId) {
+                setActiveLink(`/#${currentSectionId}`);
+            } else {
+                setActiveLink('/');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <header className="font-sans bg-[#2a2a2e] text-gray-300 shadow-sm sticky top-0 z-50 border-b border-gray-700">
@@ -32,8 +61,7 @@ const Navbar = () => {
                             <li key={link.title}>
                                 <NavLink
                                     to={link.path}
-                                    end={link.path === '/'}
-                                    style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+                                    style={activeLink === link.path ? activeLinkStyle : undefined}
                                     className="hover:text-purple-400 transition-colors duration-300 text-lg"
                                 >
                                     {link.title}
@@ -60,7 +88,7 @@ const Navbar = () => {
                         <li key={link.title}>
                             <NavLink
                                 to={link.path}
-                                style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+                                style={activeLink === link.path ? activeLinkStyle : undefined}
                                 className="hover:text-purple-400 transition-colors duration-300 text-lg"
                                 onClick={() => setIsMenuOpen(false)} // Close menu on link click
                             >
