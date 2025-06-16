@@ -12,6 +12,7 @@ module.exports = {
         sans: ['Prompt', ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        'pale-lavender': '#d8d2e9',
         'light-lavender': '#F2EEF8',
         'lavender-pink': '#DFB2F3',
         'lilac': '#BA91D9',
@@ -19,7 +20,7 @@ module.exports = {
         'royal-purple': '#5244A5',
         'deep-purple': '#2B2742',
         'almost-black': '#2B2D31',
-      }
+      },
     },
   },
   plugins: [

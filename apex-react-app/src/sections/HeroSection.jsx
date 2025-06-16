@@ -102,33 +102,31 @@ const HeroSection = () => {
         className="container mx-auto flex flex-col"
       >
         <div className="relative w-full h-[45vh] md:h-[calc(100vh-48px)]">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             {banners.map((banner, index) =>
               currentBanner === index ? (
                 <motion.div
                   key={index}
                   className="absolute inset-0"
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
+                  initial={{ x: '100%' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '-100%' }}
                   transition={{ 
                     duration: 0.8,
                     ease: "easeInOut"
                   }}
                 >
                   <div className="w-full h-full flex items-start justify-center relative">
-                    <motion.img
+                    <img
                       src={banner}
                       alt={`Banner ${index + 1}`}
                       className="max-w-full max-h-full object-contain"
-                      initial={{ scale: 1.1 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 1 }}
                     />
                   </div>
                 </motion.div>
               ) : null
-            )}          </AnimatePresence>
+            )}
+          </AnimatePresence>
           <div className="absolute bottom-[200px] w-full hidden md:flex justify-center items-center z-20">
             <motion.div
               className="flex space-x-4 px-4 py-2 rounded-full bg-black/20"
