@@ -7,7 +7,7 @@ const navLinks = [
     { title: 'บริการของเรา', path: '/#services' },
     { title: 'ผลงานของเรา', path: '/#portfolio' },
     { title: 'บทความ', path: '/#blog' },
-    { title: 'ติดต่อเรา', path: '/contact' },
+    { title: 'ติดต่อเรา', path: '/#contact' },
 ];
 
 const Navbar = () => {

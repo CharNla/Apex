@@ -82,7 +82,7 @@ const ServicesSection = () => {
   return (
     <div
       id="services"
-      className="min-h-screen bg-cover bg-center"
+      className="min-h-screen bg-cover bg-center font-sans"
       style={{ backgroundImage: `url(${ServicesBg})` }}
     >
       <div className="flex items-center justify-end min-h-screen">
