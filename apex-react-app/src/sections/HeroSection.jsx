@@ -14,6 +14,11 @@ import icon3 from '../assets/icon/monitor section/3.png';
 import icon4 from '../assets/icon/monitor section/4.png';
 import icon5 from '../assets/icon/monitor section/5.png';
 import icon6 from '../assets/icon/monitor section/6.png';
+import ITimg1 from '../assets/img/IT Section/ITimg1.png';
+import ITimg2 from '../assets/img/IT Section/ITimg2.png';
+import ITimg3 from '../assets/img/IT Section/ITimg3.png';
+import ITimg4 from '../assets/img/IT Section/ITimg4.png';
+import ITimg5 from '../assets/img/IT Section/ITimg5.png';
 
 const banners = [banner1, banner2, banner3];
 
@@ -185,6 +190,94 @@ const HeroSection = () => {
                 <p className="text-xs md:text-base text-gray-300 max-w-7xl mx-auto leading-normal md:leading-relaxed">
                   ทั้งในส่วนของHardware Software และระบบ Network ให้สามารถรองรับการขยายตัวในอนาคตหรือการปรับตัวให้เข้ากับเทคโนโลยีใหม่ ๆ
                 </p>
+              </div>
+            </div>
+
+            {/* Images */}
+            <div className="absolute top-[60%] left-0 transform -translate-y-1/2 pl-[0.7rem] md:pl-[12.7rem]">
+              <div className="flex flex-col items-start gap-8">
+                {/* Top Row */}
+                <div className="flex items-stretch gap-4">
+                  {/* Tech Image with Text Overlay */}
+                  <div className="relative w-full max-w-[630px] rounded-lg shadow-2xl overflow-hidden">
+                    <img src={ITimg1} alt="Tech" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 p-6 md:p-8 text-white">
+                      <h2 className="text-2xl md:text-3xl font-bold">การออกแบบระบบ</h2>
+                      <h2 className="text-2xl md:text-3xl font-bold">Server</h2>
+                      <p className="mt-2 text-sm md:text-base font-light text-gray-300 max-w-md">
+                        วางแผนและออกแบบระบบ Server ให้รองรับงานที่มีปริมาณการใช้งานสูง และสามารถขยายระบบได้ตามความต้องการของธุรกิจ
+                      </p>
+                    </div>
+                  </div>
+                  {/* Cloud Image with Text Overlay */}
+                  <div className="relative w-full max-w-[420px] rounded-lg shadow-2xl overflow-hidden">
+                    <img src={ITimg2} alt="Cloud" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 p-4 md:p-6 text-white w-full">
+                      <h2 className="text-xl md:text-2xl font-bold">การออกแบบ</h2>
+                      <h2 className="text-xl md:text-2xl font-bold">Cloud Computing</h2>
+                      <ul className="mt-2 space-y-2 text-xs md:text-sm font-light text-gray-200">
+                        <li className="flex gap-2">
+                          <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-300"></span>
+                          <span>ออกแบบระบบที่ผสานรวมระหว่าง Cloud Public, Private หรือ Hybrid Cloud เพื่อลดต้นทุนและเพิ่มความยืดหยุ่นในการปรับทรัพยากรให้สอดคล้องกับความต้องการ</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-300"></span>
+                          <span>ให้คำแนะนำในการป้องกันการจู่โจมและการบริหารจัดการข้อมูลบนระบบ Cloud อย่างมีประสิทธิภาพ</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                {/* Bottom Row */}
+                <div className="flex items-stretch gap-5">
+                  {/* serverRoomImage with Text Overlay */}
+                  <div className="relative w-full max-w-[340px] h-full rounded-lg shadow-2xl overflow-hidden">
+                    <img src={ITimg3} alt="Server Room" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
+                      <h2 className="text-xl font-bold">การออกแบบ</h2>
+                      <h2 className="text-xl font-bold">Data Center</h2>
+                      <p className="mt-2 text-xs md:text-sm font-light text-gray-200">
+                        ให้คำปรึกษาด้านการบริหารจัดการ การวางแผน ออกแบบ รวมถึงการบำรุงรักษา Data Center เพื่อรองรับ Power Backup, ระบบรักษาความปลอดภัย รวมถึงความต่อเนื่องของการให้บริการที่ไม่สะดุด
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* grayImage with Text Overlay */}
+                  <div className="relative w-full max-w-[340px] h-full rounded-lg shadow-2xl overflow-hidden">
+                    <img src={ITimg4} alt="Gray" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
+                      <h2 className="text-xl font-bold">Network</h2>
+                      <h2 className="text-xl font-bold">Infrastructure</h2>
+                      <ul className="mt-2 space-y-2 text-xs md:text-sm font-light text-gray-200">
+                        <li className="flex gap-2">
+                          <span className="mt-1.5 block h-1 w-1 flex-shrink-0 rounded-full bg-gray-300"></span>
+                          <span>ออกแบบและตั้งระบบเครือข่ายที่ครอบคลุมและปลอดภัย ทั้งในส่วนของ LAN, WAN และ Internet Connectivity</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-1.5 block h-1 w-1 flex-shrink-0 rounded-full bg-gray-300"></span>
+                          <span>ให้คำแนะนำในการเลือกใช้ Firewall, VPN และระบบโทรศัพท์เพื่อบ่งชี้การแก้ไขให้ตรงประสงค์</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* engineerImage with Text Overlay */}
+                  <div className="relative w-full max-w-[340px] h-full rounded-lg shadow-2xl overflow-hidden">
+                    <img src={ITimg5} alt="Engineer" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div className="absolute bottom-4 left-0 p-4 md:p-6 text-white w-full">
+                      <h2 className="text-xl font-bold">จำหน่ายและติดตั้งอุปกรณ์</h2>
+                      <h2 className="text-xl font-bold">Server</h2>
+                      <p className="mt-2 text-xs md:text-sm font-light text-gray-200">
+                        บริการให้เช่าอุปกรณ์ Server เรามีทีมผู้เชี่ยวชาญให้คำปรึกษาและติดตั้งอุปกรณ์ให้ตรงกับความต้องการของธุรกิจ พร้อมทั้งทดสอบและให้คำแนะนำเพื่อให้ได้ประสิทธิภาพ
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
