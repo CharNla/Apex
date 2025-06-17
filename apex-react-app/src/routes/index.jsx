@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, useLocation } from 'react-router-dom';
+import { createHashRouter, Outlet, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import HomePage from '../pages/HomePage';
 import Navbar from '../components/layout/Navbar';
@@ -30,7 +30,7 @@ const Layout = () => {
     );
 };
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: '/',
         element: <Layout />,

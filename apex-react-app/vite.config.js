@@ -15,4 +15,12 @@ export default defineConfig({
       avif: { quality: 80 },
     }),
   ],
+  build: {
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
 }) 
