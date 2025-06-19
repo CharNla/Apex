@@ -63,7 +63,7 @@ const JournalPopup = ({ post, onClose }) => (
                         <FaTimes size={20} />
                     </button>
                     
-                    <div className="overflow-y-auto">
+                    <div className="overflow-y-auto custom-scrollbar">
                         <div className="relative">
                             <img src={post.image} alt={post.title} className="w-full h-72 md:h-96 object-cover" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
