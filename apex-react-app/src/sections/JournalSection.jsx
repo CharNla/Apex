@@ -104,14 +104,7 @@ const JournalCard = ({ post, onCardClick }) => (
     <div className="p-6 text-white">
       <h3 className="font-bold text-xl mb-2">{post.title}</h3>
       {post.subtitle && <h4 className="font-semibold text-lg mb-2 text-gray-300">{post.subtitle}</h4>}
-      <p className="text-gray-400 text-sm mb-6 h-14 overflow-hidden">{post.description}</p>
-      <div className="flex items-center">
-         <img src={IconAccount} alt="Author" className="w-10 h-10 rounded-full mr-4" />
-        <div>
-          <p className="font-semibold">{post.author}</p>
-          <p className="text-gray-400 text-xs">{`${post.date} · ${post.readTime}`}</p>
-        </div>
-      </div>
+      <p className="text-gray-400 text-sm h-24 overflow-hidden">{post.description}</p>
     </div>
   </div>
 );
