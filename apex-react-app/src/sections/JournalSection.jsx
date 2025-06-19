@@ -108,7 +108,7 @@ const AddJournalPopup = ({ show, onClose, onAddJournal }) => {
                                 <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} required className="w-full bg-gray-700/50 rounded p-2 h-24 custom-scrollbar focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
                                 <input type="url" placeholder="Image URL (Optional)" value={imageFile ? '' : imageUrl} onChange={(e) => setImageUrl(e.target.value)} disabled={!!imageFile} className="w-full bg-gray-700/50 rounded p-2 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:bg-gray-800" />
                                 <div>
-                                    <label htmlFor="file-upload" className="w-full block text-center cursor-pointer bg-gray-700/50 rounded p-2 hover:bg-gray-600/50">
+                                    <label htmlFor="file-upload" className="w-full block text-center cursor-pointer bg-[#3aa856] hover:bg-[#34974d] text-white font-semibold rounded p-2 transition-colors">
                                         {imageFile ? `Selected: ${imageFile.name}` : 'Upload Image'}
                                     </label>
                                     <input id="file-upload" type="file" className="hidden" onChange={handleFileChange} accept="image/*" />
