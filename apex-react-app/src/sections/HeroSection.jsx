@@ -381,9 +381,6 @@ const HeroSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href="#" className="mt-4 inline-block font-semibold text-[#B05AE7] hover:underline">
-                    เพิ่มเติม
-                  </a>
                 </div>
               </motion.div>
             ))}
@@ -425,27 +422,6 @@ const HeroSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-      {/* Software House Section */}
-      <div id="software-house" className="w-full bg-[#1E1B3C] py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="mb-3 text-xl font-bold text-white md:mb-6 md:text-5xl">
-              Software House Detail
-            </h2>
-            <div className="max-w-5xl mx-auto">
-              <p className="mx-auto text-xs leading-normal text-gray-300 md:text-base md:leading-relaxed">
-                บริการพัฒนาซอฟต์แวร์ตามความต้องการของลูกค้า ด้วยทีมงานมืออาชีพที่มีประสบการณ์
-              </p>
             </div>
           </motion.div>
         </div>

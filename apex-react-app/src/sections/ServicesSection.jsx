@@ -28,7 +28,6 @@ const serviceData = [
   {
     title: 'บริการเสริมอื่น ๆ',
     details: [
-      'ดูแลและบำรุงรักษาระบบ (Maintenance)',
       'ให้คำปรึกษาด้านเทคนิค (Technical Consulting)',
       'ปรับปรุงและเพิ่มประสิทธิภาพระบบเดิม (System Revamp & Optimization)',
       'บริการด้าน Cloud (Cloud Service & Migration)',
@@ -81,7 +80,7 @@ const ServicesSection = () => {
 
   return (
     <div
-      id="services"
+      id="software-house"
       className="min-h-screen bg-cover bg-center font-sans"
       style={{ backgroundImage: `url(${ServicesBg})` }}
     >

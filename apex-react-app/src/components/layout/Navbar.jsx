@@ -66,37 +66,33 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = [
-                'it-infrastructure',
-                'monitoring',
-                'software-house'
-            ];
+            const sections = navLinks
+                .flatMap(link => link.dropdownItems ? link.dropdownItems.map(item => item.path) : link.path)
+                .filter(path => path.startsWith('#') && path !== '#top')
+                .map(path => path.substring(1));
 
             const navbar = document.querySelector('header');
             const navbarHeight = navbar ? navbar.offsetHeight : 0;
 
-            // Check if we're at the top of the page
-            if (window.pageYOffset === 0) {
-                setActiveLink('#top');
-                return;
-            }
-
             // Find the current section
             let current = '';
-            for (const section of sections) {
-                const element = document.getElementById(section);
+            for (const sectionId of sections) {
+                const element = document.getElementById(sectionId);
                 if (element) {
                     const rect = element.getBoundingClientRect();
-                    // Adjust the threshold to account for navbar height
-                    if (rect.top <= navbarHeight + 10 && rect.bottom >= navbarHeight) {
-                        current = section;
+                    if (rect.top <= navbarHeight + 10 && rect.bottom >= navbarHeight + 10) {
+                        current = sectionId;
                         break;
                     }
                 }
             }
 
             // Update active link
-            setActiveLink(current ? `#${current}` : '');
+            if (current) {
+                setActiveLink(`#${current}`);
+            } else if (window.pageYOffset === 0) {
+                setActiveLink('#top');
+            }
         };
 
         window.addEventListener('scroll', handleScroll);

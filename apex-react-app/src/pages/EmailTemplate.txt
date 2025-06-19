@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Notification | Apex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            background: #fafafa;
+            color: #333;
+        }
+
+        .email-wrapper {
+            max-width: 100%;
+            background: #f0f0f0;
+            padding: 40px 20px;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .email-header {
+            text-align: center;
+            padding: 40px;
+            background: #f8f9fc;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            width: 80px;
+            margin-bottom: 24px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #7C3AED;
+            margin-bottom: 8px;
+        }
+
+        .header-subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .content-section {
+            padding: 32px;
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: #f8f9fc;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .info-item:hover {
+            transform: translateX(4px);
+        }
+
+        .icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #7C3AED;
+            border-radius: 8px;
+            margin-right: 16px;
+        }
+
+        .material-icons-round {
+            color: white;
+            font-size: 20px;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: #7C3AED;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: #333;
+        }
+
+        .email-footer {
+            text-align: center;
+            padding: 24px;
+            background: #f8f9fc;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-text {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .company-name {
+            color: #7C3AED;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .email-wrapper {
+                padding: 20px;
+            }
+
+            .email-header {
+                padding: 24px;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .info-item {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <div class="email-container">
+            <div class="email-header">
+
+                <h1 class="header-title">New Contact Request</h1>
+                <p class="header-subtitle">We've received a new inquiry</p>
+            </div>
+
+            <div class="content-section">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">person</span>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Name</div>
+                            <div class="info-value">{{from_name}}</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">email</span>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">{{reply_to}}</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">phone</span>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Phone</div>
+                            <div class="info-value">{{phone}}</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">business</span>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Company</div>
+                            <div class="info-value">{{company}}</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">category</span>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Business Type</div>
+                            <div class="info-value">{{business_type}}</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">build</span>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Service Interest</div>
+                            <div class="info-value">{{service_interest}}</div>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-wrapper">
+                            <span class="material-icons-round">account_balance_wallet</span>
+                        </div>
+                        <div class="info-content">
+                            <div class="info-label">Budget</div>
+                            <div class="info-value">{{budget}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="email-footer">
+                <p class="footer-text company-name">Apex Capable Tech Co., Ltd.</p>
+                <p class="footer-text">This is an automated notification.</p>
+                <p class="footer-text">© 2025 All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
