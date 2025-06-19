@@ -42,6 +42,19 @@ const AddJournalPopup = ({ show, onClose, onAddJournal }) => {
     const [subtitle, setSubtitle] = useState('');
     const [description, setDescription] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const [imageFile, setImageFile] = useState(null);
+
+    const handleFileChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImageUrl(reader.result);
+            };
+            reader.readAsDataURL(file);
+            setImageFile(file);
+        }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -63,6 +76,7 @@ const AddJournalPopup = ({ show, onClose, onAddJournal }) => {
         setSubtitle('');
         setDescription('');
         setImageUrl('');
+        setImageFile(null);
         onClose();
     };
     
@@ -92,7 +106,13 @@ const AddJournalPopup = ({ show, onClose, onAddJournal }) => {
                                 <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required className="w-full bg-gray-700/50 rounded p-2 focus:outline-none focus:ring-2 focus:ring-purple-500" />
                                 <input type="text" placeholder="Subtitle (Optional)" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} className="w-full bg-gray-700/50 rounded p-2 focus:outline-none focus:ring-2 focus:ring-purple-500" />
                                 <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} required className="w-full bg-gray-700/50 rounded p-2 h-24 custom-scrollbar focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
-                                <input type="url" placeholder="Image URL (Optional)" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} className="w-full bg-gray-700/50 rounded p-2 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                <input type="url" placeholder="Image URL (Optional)" value={imageFile ? '' : imageUrl} onChange={(e) => setImageUrl(e.target.value)} disabled={!!imageFile} className="w-full bg-gray-700/50 rounded p-2 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:bg-gray-800" />
+                                <div>
+                                    <label htmlFor="file-upload" className="w-full block text-center cursor-pointer bg-gray-700/50 rounded p-2 hover:bg-gray-600/50">
+                                        {imageFile ? `Selected: ${imageFile.name}` : 'Upload Image'}
+                                    </label>
+                                    <input id="file-upload" type="file" className="hidden" onChange={handleFileChange} accept="image/*" />
+                                </div>
                                 <button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 font-bold py-2 px-4 rounded transition-colors">Add Journal</button>
                             </form>
                         </div>
