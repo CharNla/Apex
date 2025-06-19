@@ -1,10 +1,10 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -21,6 +21,16 @@ module.exports = {
         'deep-purple': '#2B2742',
         'almost-black': '#2B2D31',
       },
+      keyframes: {
+        celebrate: {
+          '0%': { transform: 'scale(0)' },
+          '50%': { opacity: '1' },
+          '100%': { transform: 'scale(1.2)', opacity: '0', display: 'none' },
+        }
+      },
+      animation: {
+        celebrate: 'celebrate 0.4s forwards',
+      }
     },
   },
   plugins: [

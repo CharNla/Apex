@@ -274,22 +274,22 @@ const JournalSection = ({ isAdmin }) => {
                     ))}
                 </motion.div>
             </AnimatePresence>
-          </div>
+        </div>
 
           {totalPages > 1 && (
-            <div className="flex justify-end items-center mt-12 gap-6 pr-28">
+        <div className="flex justify-end items-center mt-12 gap-6 pr-28">
               <button 
                   onClick={handlePrevPage}
                   className="text-white/50 hover:text-white transition-colors"
               >
-                <FaArrowLeft size={24} />
-              </button>
+            <FaArrowLeft size={24} />
+          </button>
               <button 
                   onClick={handleNextPage}
                   className="text-white/50 hover:text-white transition-colors"
               >
-                <FaArrowRight size={24} />
-              </button>
+            <FaArrowRight size={24} />
+          </button>
             </div>
           )}
         </div>
