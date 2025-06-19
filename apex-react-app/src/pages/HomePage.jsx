@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import HeroSection from "../sections/HeroSection";
 
 const ServicesSection = React.lazy(() => import('../sections/ServicesSection'));
@@ -13,6 +14,7 @@ const LoadingFallback = () => (
 );
 
 const HomePage = () => {
+    const { isAdmin } = useOutletContext();
     return (
         <div>
             <HeroSection />
@@ -24,7 +26,7 @@ const HomePage = () => {
                     <ProjectSection />
                 </div>
                 <div className="animate-fade-in-up">
-                    <JournalSection />
+                    <JournalSection isAdmin={isAdmin} />
                 </div>
                 <div className="animate-fade-in-up">
                     <ContactSection />

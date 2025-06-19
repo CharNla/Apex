@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaSignOutAlt } from 'react-icons/fa';
 import logo from '/iconapex.png';
 
 const navLinks = [
@@ -17,7 +18,7 @@ const navLinks = [
     { title: 'ติดต่อเรา', path: '#contact' },
 ];
 
-const Footer = () => {
+const Footer = ({ onLoginClick, isAdmin, onLogoutClick }) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const handleScrollToSection = (sectionId) => {
@@ -93,6 +94,22 @@ const Footer = () => {
             ))}
           </ul>
         </nav>
+        
+        <div className="text-center mt-8">
+          {isAdmin ? (
+            <button 
+              onClick={onLogoutClick} 
+              className="inline-flex items-center gap-2 text-sm text-red-500 hover:text-red-400 transition-colors font-semibold"
+            >
+              <FaSignOutAlt />
+              <span>Logout</span>
+            </button>
+          ) : (
+            <button onClick={onLoginClick} className="text-sm text-gray-500 hover:text-purple-400 transition-colors">
+              เข้าสู่ระบบเฉพาะเจ้าหน้าที่
+            </button>
+          )}
+        </div>
         
         <hr className="border-t border-gray-700 my-8" />
         

@@ -4,10 +4,10 @@ import JournalBg from '../assets/img/JournalBg.png';
 import Journal1 from '../assets/img/Journal Section/Journal1.png';
 import Journal2 from '../assets/img/Journal Section/Journal2.png';
 import Journal3 from '../assets/img/Journal Section/Journal3.png';
-import { FaArrowLeft, FaArrowRight, FaTimes } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaTimes, FaPlus } from 'react-icons/fa';
 import IconAccount from '../assets/icon/IconAccount.png';
 
-const journalData = [
+const initialJournalData = [
   {
     image: Journal1,
     title: 'เปิดตัว Dyson Supersonic Nural',
@@ -36,6 +36,72 @@ const journalData = [
     readTime: '5 min read',
   },
 ];
+
+const AddJournalPopup = ({ show, onClose, onAddJournal }) => {
+    const [title, setTitle] = useState('');
+    const [subtitle, setSubtitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600' style='background-color:%23E5E7EB'%3E%3C/svg%3E";
+        
+        const newJournal = {
+            image: imageUrl || placeholderImage,
+            title,
+            subtitle,
+            description,
+            author: 'Anurat Klaikrom', // Or get from admin context
+            date: new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(new Date()),
+            readTime: '5 min read',
+        };
+        onAddJournal(newJournal);
+        
+        // Reset form and close
+        setTitle('');
+        setSubtitle('');
+        setDescription('');
+        setImageUrl('');
+        onClose();
+    };
+    
+    return (
+        <AnimatePresence>
+            {show && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                    onClick={onClose}
+                >
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.9, opacity: 0 }}
+                        className="bg-gradient-to-br from-[#2B2D32] to-[#222428] text-white rounded-2xl w-full max-w-2xl relative shadow-2xl border border-white/10"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                         <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-10">
+                            <FaTimes size={20} />
+                        </button>
+                        <div className="p-8">
+                            <h2 className="text-2xl font-bold mb-6 text-center">Add New Journal</h2>
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required className="w-full bg-gray-700/50 rounded p-2 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                <input type="text" placeholder="Subtitle (Optional)" value={subtitle} onChange={(e) => setSubtitle(e.target.value)} className="w-full bg-gray-700/50 rounded p-2 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} required className="w-full bg-gray-700/50 rounded p-2 h-24 custom-scrollbar focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                                <input type="url" placeholder="Image URL (Optional)" value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} className="w-full bg-gray-700/50 rounded p-2 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                                <button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 font-bold py-2 px-4 rounded transition-colors">Add Journal</button>
+                            </form>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+};
 
 const JournalPopup = ({ post, onClose }) => (
     <AnimatePresence>
@@ -95,50 +161,145 @@ const JournalPopup = ({ post, onClose }) => (
 
 const JournalCard = ({ post, onCardClick }) => (
   <div 
-    className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden flex-shrink-0 w-full max-w-sm cursor-pointer group transform hover:-translate-y-2 transition-transform duration-300"
+    className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden w-full max-w-sm cursor-pointer group transform hover:-translate-y-2 transition-transform duration-300 flex flex-col"
     onClick={() => onCardClick(post)}
     >
-    <div className="overflow-hidden">
-        <img src={post.image} alt={post.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"/>
+    <div className="overflow-hidden h-48 flex-shrink-0">
+        <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
     </div>
-    <div className="p-6 text-white">
+    <div className="p-6 text-white flex flex-col flex-grow">
       <h3 className="font-bold text-xl mb-2">{post.title}</h3>
       {post.subtitle && <h4 className="font-semibold text-lg mb-2 text-gray-300">{post.subtitle}</h4>}
-      <p className="text-gray-400 text-sm h-24 overflow-hidden">{post.description}</p>
+      <p className="text-gray-400 text-sm h-24 overflow-hidden mt-auto">{post.description}</p>
     </div>
   </div>
 );
 
-const JournalSection = () => {
+const JournalSection = ({ isAdmin }) => {
     const [selectedPost, setSelectedPost] = useState(null);
+    const [isAddPopupOpen, setAddPopupOpen] = useState(false);
+    const [journalData, setJournalData] = useState(initialJournalData);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [direction, setDirection] = useState(0);
+
+    const handleAddJournal = (newJournal) => {
+        setJournalData(prevData => [newJournal, ...prevData]);
+        setCurrentPage(0); // Go to the first page to show the new journal
+    };
+
+    // Pagination logic
+    const itemsPerPage = 3;
+    const totalPages = Math.ceil(journalData.length / itemsPerPage);
+    const startIndex = currentPage * itemsPerPage;
+    const currentJournalItems = journalData.slice(startIndex, startIndex + itemsPerPage);
+
+    const slideVariants = {
+        enter: (direction) => ({
+            x: direction > 0 ? '100%' : '-100%',
+            opacity: 0,
+        }),
+        center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1,
+            transition: {
+                x: { type: 'spring', stiffness: 300, damping: 35 },
+                opacity: { duration: 0.2 },
+            },
+        },
+        exit: (direction) => ({
+            zIndex: 0,
+            x: direction < 0 ? '100%' : '-100%',
+            opacity: 0,
+            transition: {
+                x: { type: 'spring', stiffness: 300, damping: 35 },
+                opacity: { duration: 0.2 },
+            },
+        }),
+    };
+
+    const handleNextPage = () => {
+        setDirection(1);
+        setCurrentPage(prev => (prev + 1) % totalPages);
+    };
+
+    const handlePrevPage = () => {
+        setDirection(-1);
+        setCurrentPage(prev => (prev - 1 + totalPages) % totalPages);
+    };
 
   return (
     <>
-      <div 
-        id="blog" 
-        className="bg-cover bg-center min-h-screen flex items-center animate-in fade-in slide-in-from-bottom-10 duration-700"
-        style={{ backgroundImage: `url(${JournalBg})` }}
-      >
-        <div className="container mx-auto px-4 md:px-12 py-16">
-          <h2 className="text-4xl font-bold text-white mb-12 text-left md:pl-28">Journal</h2>
+    <div 
+      id="blog" 
+      className="bg-cover bg-center min-h-screen flex items-center animate-in fade-in slide-in-from-bottom-10 duration-700"
+      style={{ backgroundImage: `url(${JournalBg})` }}
+    >
+      <div className="container mx-auto px-4 md:px-12 py-16">
+          <div className="flex justify-between items-center mb-12 md:pl-28 md:pr-28">
+            <h2 className="text-4xl font-bold text-white">Journal</h2>
+            {isAdmin && (
+                <button 
+                    onClick={() => setAddPopupOpen(true)}
+                    className="group relative w-[150px] h-10 cursor-pointer flex items-center border border-[#34974d] bg-[#3aa856] hover:bg-[#34974d] active:border-[#2e8644] transition-all duration-300 overflow-hidden rounded-md"
+                >
+                    <span className="text-white font-semibold transform translate-x-[25px] transition-all duration-300 group-hover:text-transparent">
+                        Add
+                    </span>
+                    <span 
+                        className="absolute h-full flex items-center justify-center bg-[#34974d] w-[39px] right-0 group-hover:w-full group-active:bg-[#2e8644] transition-all duration-300"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width={24} viewBox="0 0 24 24" strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" stroke="currentColor" height={24} fill="none" className="w-[30px] stroke-white">
+                            <line y2={19} y1={5} x2={12} x1={12} />
+                            <line y2={12} y1={12} x2={19} x1={5} />
+                        </svg>
+                    </span>
+                </button>
+            )}
+          </div>
           
-          <div className="flex flex-wrap md:flex-nowrap justify-center gap-8">
-            {journalData.map((post, index) => (
-              <JournalCard key={index} post={post} onCardClick={setSelectedPost} />
-            ))}
+          <div className="relative flex justify-center min-h-[500px] overflow-hidden">
+            <AnimatePresence initial={false} custom={direction}>
+                <motion.div
+                    key={currentPage}
+                    className="absolute flex flex-wrap md:flex-nowrap justify-center gap-8 w-full items-stretch"
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                >
+                    {currentJournalItems.map((post, index) => (
+                      <JournalCard key={startIndex + index} post={post} onCardClick={setSelectedPost} />
+                    ))}
+                </motion.div>
+            </AnimatePresence>
           </div>
 
-          <div className="flex justify-end items-center mt-12 gap-6 pr-28">
-            <button className="text-white/50 hover:text-white transition-colors">
-              <FaArrowLeft size={24} />
-            </button>
-            <button className="text-white/50 hover:text-white transition-colors">
-              <FaArrowRight size={24} />
-            </button>
-          </div>
+          {totalPages > 1 && (
+            <div className="flex justify-end items-center mt-12 gap-6 pr-28">
+              <button 
+                  onClick={handlePrevPage}
+                  className="text-white/50 hover:text-white transition-colors"
+              >
+                <FaArrowLeft size={24} />
+              </button>
+              <button 
+                  onClick={handleNextPage}
+                  className="text-white/50 hover:text-white transition-colors"
+              >
+                <FaArrowRight size={24} />
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <JournalPopup post={selectedPost} onClose={() => setSelectedPost(null)} />
+      <AddJournalPopup 
+        show={isAddPopupOpen} 
+        onClose={() => setAddPopupOpen(false)}
+        onAddJournal={handleAddJournal}
+      />
     </>
   );
 };
