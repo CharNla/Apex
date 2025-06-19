@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import banner1 from '../assets/img/banner1.png';
-import banner2 from '../assets/img/banner2.png';
-import banner3 from '../assets/img/banner3.png';
+import banner1 from '../assets/img/Banner/banner1.png';
+import banner2 from '../assets/img/Banner/banner2.png';
+import banner3 from '../assets/img/Banner/banner3.png';
 import bg1 from '../assets/img/พื้นหลังพญานาค.png';
 import bg2 from '../assets/img/bg2.png';
 import ApexCircle from '../components/ui/Apexcircle';
@@ -19,6 +19,8 @@ import ITimg2 from '../assets/img/IT Section/ITimg2.png';
 import ITimg3 from '../assets/img/IT Section/ITimg3.png';
 import ITimg4 from '../assets/img/IT Section/ITimg4.png';
 import ITimg5 from '../assets/img/IT Section/ITimg5.png';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
 
 const banners = [banner1, banner2, banner3];
 
