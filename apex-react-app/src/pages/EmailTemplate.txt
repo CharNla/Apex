@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Notification | Apex</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
     <style>
         * {
@@ -83,19 +82,12 @@
         }
 
         .icon-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
             width: 40px;
             height: 40px;
             background: #7C3AED;
             border-radius: 8px;
             margin-right: 16px;
-        }
-
-        .material-icons-round {
-            color: white;
-            font-size: 20px;
         }
 
         .info-content {
@@ -165,7 +157,7 @@
                 <div class="info-grid">
                     <div class="info-item">
                         <div class="icon-wrapper">
-                            <span class="material-icons-round">person</span>
+                            <div style="color: white; font-size: 20px; font-weight: 500; line-height: 40px;">N</div>
                         </div>
                         <div class="info-content">
                             <div class="info-label">Name</div>
@@ -175,7 +167,7 @@
 
                     <div class="info-item">
                         <div class="icon-wrapper">
-                            <span class="material-icons-round">email</span>
+                            <div style="color: white; font-size: 20px; font-weight: 500; line-height: 40px;">E</div>
                         </div>
                         <div class="info-content">
                             <div class="info-label">Email</div>
@@ -185,7 +177,7 @@
 
                     <div class="info-item">
                         <div class="icon-wrapper">
-                            <span class="material-icons-round">phone</span>
+                            <div style="color: white; font-size: 20px; font-weight: 500; line-height: 40px;">P</div>
                         </div>
                         <div class="info-content">
                             <div class="info-label">Phone</div>
@@ -195,7 +187,7 @@
 
                     <div class="info-item">
                         <div class="icon-wrapper">
-                            <span class="material-icons-round">business</span>
+                            <div style="color: white; font-size: 20px; font-weight: 500; line-height: 40px;">C</div>
                         </div>
                         <div class="info-content">
                             <div class="info-label">Company</div>
@@ -205,7 +197,7 @@
 
                     <div class="info-item">
                         <div class="icon-wrapper">
-                            <span class="material-icons-round">category</span>
+                            <div style="color: white; font-size: 20px; font-weight: 500; line-height: 40px;">T</div>
                         </div>
                         <div class="info-content">
                             <div class="info-label">Business Type</div>
@@ -215,7 +207,7 @@
 
                     <div class="info-item">
                         <div class="icon-wrapper">
-                            <span class="material-icons-round">build</span>
+                            <div style="color: white; font-size: 20px; font-weight: 500; line-height: 40px;">S</div>
                         </div>
                         <div class="info-content">
                             <div class="info-label">Service Interest</div>
@@ -225,7 +217,7 @@
 
                     <div class="info-item">
                         <div class="icon-wrapper">
-                            <span class="material-icons-round">account_balance_wallet</span>
+                            <div style="color: white; font-size: 20px; font-weight: 500; line-height: 40px;">B</div>
                         </div>
                         <div class="info-content">
                             <div class="info-label">Budget</div>
