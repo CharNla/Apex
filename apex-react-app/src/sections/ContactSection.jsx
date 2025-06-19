@@ -172,7 +172,7 @@ const ContactSection = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">อนุญาตให้ติดต่อกลับผ่านข้อมูลที่ให้ไว้</label>
                 <div className="flex items-start space-x-3">
-                    <label className="relative flex items-center justify-center select-none cursor-pointer rounded-full bg-white h-5 w-5">
+                    <label className="relative flex items-center justify-center select-none cursor-pointer rounded-full bg-white h-5 w-5 mt-1 flex-shrink-0">
                         <input 
                             type="checkbox" 
                             id="consent" 

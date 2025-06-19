@@ -258,7 +258,15 @@ const JournalSection = ({ isAdmin }) => {
             )}
           </div>
           
-          <div className="relative flex justify-center min-h-[500px] overflow-hidden">
+          {/* Mobile view: stacked cards */}
+          <div className="md:hidden flex flex-col items-center gap-8">
+            {journalData.map((post, index) => (
+                <JournalCard key={index} post={post} onCardClick={setSelectedPost} />
+            ))}
+          </div>
+
+          {/* Desktop view: slider */}
+          <div className="hidden md:relative md:flex md:justify-center md:min-h-[500px] md:overflow-hidden">
             <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                     key={currentPage}
@@ -277,7 +285,7 @@ const JournalSection = ({ isAdmin }) => {
         </div>
 
           {totalPages > 1 && (
-        <div className="flex justify-end items-center mt-12 gap-6 pr-28">
+        <div className="hidden md:flex justify-end items-center mt-12 gap-6 pr-28">
               <button 
                   onClick={handlePrevPage}
                   className="text-white/50 hover:text-white transition-colors"
