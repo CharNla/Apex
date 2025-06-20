@@ -7,7 +7,7 @@ import bg1 from '../assets/img/พื้นหลังพญานาค.png';
 import bg2 from '../assets/img/bg2.png';
 import ApexCircle from '../components/ui/Apexcircle';
 import flow from '../assets/img/flow.png';
-import overviewMonitoring from '../assets/img/OverviewMonitoring.png';
+import MonitorBanner1 from '../assets/img/MonitorBanner/MonitorBanner1.png';
 import icon1 from '../assets/icon/monitor section/1.png';
 import icon2 from '../assets/icon/monitor section/2.png';
 import icon3 from '../assets/icon/monitor section/3.png';
@@ -388,22 +388,16 @@ const HeroSection = () => {
             ))}
           </div>
           <motion.div
-            className="mt-12 max-w-6xl mx-auto relative"
+            className="mt-12 max-w-6xl mx-auto relative bg-gradient-to-br from-[#DFB2F3] to-[#5244A5] p-4 md:p-12 rounded-2xl shadow-2xl flex flex-col md:flex-row items-center gap-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6 }}
           >
-            <img
-              src={overviewMonitoring}
-              alt="Overview Monitoring"
-              className="h-auto w-full object-contain rounded-lg"
-            />
-            <div className="absolute top-0 left-0 w-full h-full flex items-center text-white">
-              <div className="w-2/5 p-4 md:p-8">
-                <h2 className="text-lg md:text-3xl font-bold">Overview</h2>
-                <h2 className="text-lg md:text-3xl font-bold mb-1 md:mb-3">Monitoring Tool</h2>
-                <div className="text-[10px] md:text-sm space-y-1 md:space-y-2">
+            <div className="w-full md:w-2/5 text-white">
+                <h2 className="text-2xl md:text-4xl font-bold">Overview</h2>
+                <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Monitoring Tool</h2>
+                <div className="text-xs md:text-base space-y-3 md:space-y-4 font-light">
                   <p>
                     ฟีเจอร์เสริมที่ลูกค้าได้รับ ระบบ Dashboard แบบเรียลไทม์<br />
                     แสดงสถานะของทุกระบบในมุมมองเดียว
@@ -423,7 +417,20 @@ const HeroSection = () => {
                     สำหรับองค์กรที่ต้องการตรวจสอบการให้บริการของทีม IT
                   </p>
                 </div>
-              </div>
+            </div>
+            <div className="w-full md:w-3/5">
+                <img
+                src={MonitorBanner1}
+                alt="Overview Monitoring Tool"
+                className="h-auto w-full object-contain rounded-lg shadow-lg"
+                />
+            </div>
+            {/* Vertical Dots */}
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 flex-col gap-y-3 hidden md:flex">
+              <div className="w-3 h-3 rounded-full bg-[#5244A5]"></div>
+              <div className="w-3 h-3 rounded-full bg-white/60"></div>
+              <div className="w-3 h-3 rounded-full bg-white/60"></div>
+              <div className="w-3 h-3 rounded-full bg-white/60"></div>
             </div>
           </motion.div>
         </div>
