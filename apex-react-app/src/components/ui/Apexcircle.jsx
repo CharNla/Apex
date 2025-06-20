@@ -11,7 +11,6 @@ const Apexcircle = () => {
             <span className="btn-txt">Apex</span>
           </button>
         </div>
-        {/* วงกลมสีชมพูพร้อมตัวอักษร */}
         <div className="apex-pink-circle circle-software">Software<br/>House</div>
         <div className="apex-pink-circle circle-it">IT<br/>Infrastructure</div>
         <div className="apex-pink-circle circle-monitor">Monitoring</div>
