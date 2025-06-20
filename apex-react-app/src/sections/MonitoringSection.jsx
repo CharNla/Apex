@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import flow from '../assets/img/flow.png';
 import MonitorBanner1 from '../assets/img/MonitorBanner/MonitorBanner1.png';
@@ -78,6 +78,16 @@ const bannerImages = [MonitorBanner1, MonitorBanner2, MonitorBanner3, MonitorBan
 
 const MonitoringSection = () => {
     const [activeImage, setActiveImage] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+        setActiveImage((prevActive) => (prevActive + 1) % bannerImages.length);
+        }, 4000);
+
+        return () => {
+        clearInterval(timer);
+        };
+    }, [activeImage]);
 
     return (
         <div id="monitoring" className="w-full bg-white py-12">
