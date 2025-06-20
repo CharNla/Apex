@@ -1,67 +1,23 @@
-import { motion } from 'framer-motion';
+import React from 'react';
 import './wave.css';
 
-const Bubble = ({ children }) => (
-  <motion.div
-    className={`w-full h-full flex items-center justify-center text-center p-4 rounded-full bg-gradient-to-br from-purple-600 to-pink-300 text-white shadow-lg`}
-    whileHover={{ scale: 1.1 }}
-    transition={{ type: 'spring', stiffness: 300 }}
-  >
-    {children}
-  </motion.div>
-);
-
-const ApexCircle = ({ className }) => {
+const Apexcircle = () => {
   return (
-    <motion.div
-      className={`relative w-full h-full flex items-center justify-center font-sans ${className}`}
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-    >
-      {/* Main "Apex" Circle */}
-      <motion.div className="relative w-[40%] aspect-square md:w-full md:h-full rounded-full flex items-center justify-center overflow-hidden playing bg-purple-200">
-        <div className="wave"></div>
-        <div className="wave"></div>
-        <div className="wave"></div>
-        <h1 className="text-4xl md:text-8xl font-bold text-white z-10">Apex</h1>
-      </motion.div>
-
-      {/* Small Bubbles */}
-      <motion.div
-        className="absolute top-[20%] left-[20%] w-16 h-16 md:top-[5%] md:left-[-2%] md:w-40 md:h-40"
-        initial={{ scale: 0, y: 50 }}
-        animate={{ scale: 1, y: 0 }}
-        transition={{ delay: 0.2, type: 'spring' }}
-      >
-        <Bubble>
-          <span className="text-[8px] md:text-sm font-semibold">Software<br/>House</span>
-        </Bubble>
-      </motion.div>
-
-      <motion.div
-        className="absolute top-[10%] right-[25%] w-16 h-16 md:top-[-5%] md:right-[1%] md:w-40 md:h-40"
-        initial={{ scale: 0, y: 50 }}
-        animate={{ scale: 1, y: 0 }}
-        transition={{ delay: 0.4, type: 'spring' }}
-      >
-        <Bubble>
-          <span className="text-[8px] md:text-sm font-semibold">IT<br/>Infrastructure</span>
-        </Bubble>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-[3%] right-[25%] w-16 h-16 md:bottom-[1%] md:right-[1%] md:w-40 md:h-40"
-        initial={{ scale: 0, y: -50 }}
-        animate={{ scale: 1, y: 0 }}
-        transition={{ delay: 0.6, type: 'spring' }}
-      >
-        <Bubble>
-          <span className="text-[8px] md:text-sm font-semibold">Monitoring</span>
-        </Bubble>
-      </motion.div>
-    </motion.div>
+    <div className="apex-atom-container">
+      <div className="atom">
+        <div className="nucleus">
+          <button className="button">
+            <span className="liquid"></span>
+            <span className="btn-txt">Apex</span>
+          </button>
+        </div>
+        {/* วงกลมสีชมพูพร้อมตัวอักษร */}
+        <div className="apex-pink-circle circle-software">Software<br/>House</div>
+        <div className="apex-pink-circle circle-it">IT<br/>Infrastructure</div>
+        <div className="apex-pink-circle circle-monitor">Monitoring</div>
+      </div>
+    </div>
   );
 };
 
-export default ApexCircle;
+export default Apexcircle;
