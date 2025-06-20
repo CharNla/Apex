@@ -1,63 +1,118 @@
-# 🚀 Apex React Application
+# Apex Web Application
 
-## 📝 รายละเอียดโครงการ
-โปรเจคนี้เป็น React Application ที่พัฒนาด้วย Vite และใช้ Tailwind CSS สำหรับการจัดการ styles
+A modern and responsive web application built with React, Vite, and Tailwind CSS. This project serves as a foundation for building fast, scalable, and beautiful front-end applications.
 
-## 💻 เทคโนโลยีที่ใช้
-- ⚛️ React
-- ⚡ Vite
-- 🎨 Tailwind CSS
+## ✨ Features
 
+- **⚡️ Fast Development:** Built with [Vite](https://vitejs.dev/) for a lightning-fast development experience and instant hot module replacement (HMR).
+- **⚛️ Modern UI:** Crafted with [React](https://reactjs.org/) for building dynamic and interactive user interfaces.
+- **🎨 Utility-First Styling:** Styled with [Tailwind CSS](https://tailwindcss.com/) for rapid, consistent, and maintainable UI design.
+- **📦 Dockerized:** Includes a multi-stage `Dockerfile` for creating optimized, lightweight production images with Nginx.
+- **🛣️ Client-Side Routing:** Uses [React Router](https://reactrouter.com/) for seamless single-page application (SPA) navigation.
 
-## 📁 โครงสร้างโปรเจค
+## 🛠️ Tech Stack
+
+- **Framework:** [React](https://reactjs.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Routing:** [React Router](https://reactrouter.com/)
+- **Deployment:** [Docker](https://www.docker.com/), [Nginx](https://www.nginx.com/)
+
+## 🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v20 or later recommended)
+- [npm](https://www.npmjs.com/)
+- [Docker](https://www.docker.com/get-started) (for containerized deployment)
+
+### Local Development
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    cd Apex
+    ```
+
+2.  **Navigate to the application directory:**
+    ```bash
+    cd apex-react-app
+    ```
+
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173` (or another port if 5173 is in use).
+
+## 📜 Available Scripts
+
+Inside the `apex-react-app` directory, you can run the following scripts:
+
+-   `npm run dev`: Starts the development server with hot-reloading.
+-   `npm run build`: Bundles the app for production into the `dist` folder.
+-   `npm run preview`: Serves the production build locally for a final check.
+-   `npm run deploy`: Deploys the application to GitHub Pages (requires `gh-pages` configuration).
+-   `npm run server`: Starts the backend server.
+
+## 🐳 Docker Deployment
+
+This project is configured for easy deployment using Docker, ensuring a consistent and isolated environment.
+
+1.  **Build the Docker image from the project's root directory (`Apex/`):**
+    ```bash
+    docker build -t apex-frontend .
+    ```
+
+2.  **Run the Docker container:**
+    ```bash
+    docker run -d -p 8080:80 --name apex-app apex-frontend
+    ```
+    The `-d` flag runs the container in detached mode. The application will be accessible at `http://localhost:8080`.
+
+## 📂 Project Structure
+
+The core application logic resides within the `apex-react-app` directory.
+
 ```
 apex-react-app/
-├── src/                    # โค้ดหลักของแอปพลิเคชัน
-│   ├── assets/            # ไฟล์สื่อต่างๆ เช่น รูปภาพ, ไอคอน
-│   ├── components/        # React Components ที่ใช้ร่วมกัน
-│   ├── pages/            # หน้าหลัก ของแอปพลิเคชัน
-│   ├── routes/           # การกำหนดเส้นทางของแอปพลิเคชัน
-│   ├── sections/         # ส่วนประกอบหลักของแต่ละหน้า
-│   ├── App.jsx           # Component หลักของแอปพลิเคชัน
-│   ├── main.jsx         # จุดเริ่มต้นของแอปพลิเคชัน
-│   └── index.css        # Global CSS styles
-├── public/               # ไฟล์ static ต่างๆ
-├── index.html           # HTML entry point
-├── package.json         # การกำหนดค่า dependencies และ scripts
-├── tailwind.config.js   # การกำหนดค่า Tailwind CSS
-├── postcss.config.js    # การกำหนดค่า PostCSS
-└── vite.config.js       # การกำหนดค่า Vite
+├── public/               # Static assets not processed by the build pipeline
+├── src/                    # Main application source code
+│   ├── assets/             # Images, icons, fonts, and other media
+│   ├── components/         # Reusable React components (UI, layout, etc.)
+│   ├── pages/              # Page components, one for each route
+│   ├── routes/             # Application routing configuration
+│   ├── sections/           # Major sections used within pages
+│   ├── App.jsx             # Root application component
+│   ├── main.jsx            # Application entry point
+│   └── index.css           # Global CSS styles
+├── .gitignore              # Files and folders to be ignored by Git
+├── index.html              # HTML template entry point
+├── package.json            # Project dependencies and scripts
+├── postcss.config.js       # PostCSS configuration
+├── tailwind.config.js      # Tailwind CSS configuration
+└── vite.config.js          # Vite build tool configuration
 ```
 
-## ⚙️ การติดตั้ง
-1. ติดตั้ง dependencies:
-```bash
-npm install
-```
+## 🤝 Contributing
 
-2. รันโปรเจคในโหมด development:
-```bash
-npm run dev
-```
+Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-3. สร้างไฟล์สำหรับ production:
-```bash
-npm run build
-```
+If you have a suggestion to improve this, please fork the repository and create a pull request. You can also simply open an issue with the tag "enhancement".
 
-## 👨‍💻 การพัฒนา
-- 🔄 ใช้ `npm run dev` เพื่อเริ่มต้น development server
-- 📝 แก้ไขโค้ดใน directory `src`
-- 🧩 เพิ่ม components ใหม่ใน directory `src/components`
-- 🛣️ จัดการ routing ใน directory `src/routes`
-- 📱 สร้างหน้าใหม่ใน directory `src/pages`
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-## 🚀 การ Deploy
-1. 🔨 รัน `npm run build` เพื่อสร้างไฟล์สำหรับ production
-2. 📦 ไฟล์ที่ได้จะอยู่ใน directory `dist`
-3. 🌐 นำไฟล์จาก directory `dist` ไป deploy บน web server
+## 📄 License
 
-## 📌 หมายเหตุ
-- 🎨 ใช้ Tailwind CSS สำหรับการจัดการ styles
-- 🔧 มีการใช้ PostCSS สำหรับการประมวลผล CSS
-- ⚡ พัฒนาด้วย Vite เพื่อประสิทธิภาพที่ดีในการพัฒนา
+Distributed under the MIT License. See the `LICENSE` file for more information.
