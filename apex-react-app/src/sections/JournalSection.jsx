@@ -6,6 +6,7 @@ import Journal2 from '../assets/img/Journal Section/Journal2.png';
 import Journal3 from '../assets/img/Journal Section/Journal3.png';
 import { FaArrowLeft, FaArrowRight, FaTimes, FaPlus } from 'react-icons/fa';
 import IconAccount from '../assets/icon/IconAccount.png';
+import ConfirmationPopup from '../components/ui/ConfirmationPopup';
 
 const initialJournalData = [
   {
@@ -179,11 +180,23 @@ const JournalPopup = ({ post, onClose }) => (
     </AnimatePresence>
 );
 
-const JournalCard = ({ post, onCardClick }) => (
+const JournalCard = ({ post, onCardClick, isAdmin, onDelete }) => (
   <div 
-    className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden w-full max-w-sm cursor-pointer group transform hover:-translate-y-2 transition-transform duration-300 flex flex-col"
+    className="relative bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden w-full max-w-sm cursor-pointer group transform hover:-translate-y-2 transition-transform duration-300 flex flex-col"
     onClick={() => onCardClick(post)}
     >
+    {isAdmin && (
+        <button
+            onClick={(e) => {
+                e.stopPropagation(); // Prevent card click
+                onDelete();
+            }}
+            className="absolute top-3 right-3 z-10 p-2 bg-black/40 rounded-full text-white/70 hover:bg-red-600 hover:text-white hover:scale-110 transform transition-all duration-200"
+            aria-label="Delete journal"
+        >
+            <FaTimes size={14} />
+        </button>
+    )}
     <div className="overflow-hidden h-48 flex-shrink-0">
         <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
     </div>
@@ -201,6 +214,8 @@ const JournalSection = ({ isAdmin }) => {
     const [journalData, setJournalData] = useState(initialJournalData);
     const [currentPage, setCurrentPage] = useState(0);
     const [direction, setDirection] = useState(0);
+    const [isConfirmOpen, setConfirmOpen] = useState(false);
+    const [journalToDelete, setJournalToDelete] = useState(null);
 
     const handleAddJournal = (newJournal) => {
         setJournalData(prevData => [newJournal, ...prevData]);
@@ -209,6 +224,30 @@ const JournalSection = ({ isAdmin }) => {
 
     // Pagination logic
     const itemsPerPage = 3;
+
+    const handleDeleteJournal = (journalIndexToDelete) => {
+        const newData = journalData.filter((_, index) => index !== journalIndexToDelete);
+        setJournalData(newData);
+    
+        const newTotalPages = Math.ceil(newData.length / itemsPerPage);
+        if (currentPage >= newTotalPages && currentPage > 0) {
+            setCurrentPage(newTotalPages - 1);
+        }
+    };
+
+    const openConfirmPopup = (index) => {
+        setJournalToDelete(index);
+        setConfirmOpen(true);
+    };
+
+    const executeDelete = () => {
+        if (journalToDelete !== null) {
+            handleDeleteJournal(journalToDelete);
+        }
+        setConfirmOpen(false);
+        setJournalToDelete(null);
+    };
+
     const totalPages = Math.ceil(journalData.length / itemsPerPage);
     const startIndex = currentPage * itemsPerPage;
     const currentJournalItems = journalData.slice(startIndex, startIndex + itemsPerPage);
@@ -281,7 +320,13 @@ const JournalSection = ({ isAdmin }) => {
           {/* Mobile view: stacked cards */}
           <div className="md:hidden flex flex-col items-center gap-8">
             {journalData.map((post, index) => (
-                <JournalCard key={index} post={post} onCardClick={setSelectedPost} />
+                <JournalCard 
+                    key={index} 
+                    post={post} 
+                    onCardClick={setSelectedPost}
+                    isAdmin={isAdmin}
+                    onDelete={() => openConfirmPopup(index)}
+                />
             ))}
           </div>
 
@@ -297,9 +342,18 @@ const JournalSection = ({ isAdmin }) => {
                     animate="center"
                     exit="exit"
                 >
-                    {currentJournalItems.map((post, index) => (
-                      <JournalCard key={startIndex + index} post={post} onCardClick={setSelectedPost} />
-                    ))}
+                    {currentJournalItems.map((post, index) => {
+                      const absoluteIndex = startIndex + index;
+                      return (
+                        <JournalCard 
+                            key={absoluteIndex} 
+                            post={post} 
+                            onCardClick={setSelectedPost}
+                            isAdmin={isAdmin}
+                            onDelete={() => openConfirmPopup(absoluteIndex)}
+                        />
+                      )
+                    })}
                 </motion.div>
             </AnimatePresence>
         </div>
@@ -327,6 +381,15 @@ const JournalSection = ({ isAdmin }) => {
         show={isAddPopupOpen} 
         onClose={() => setAddPopupOpen(false)}
         onAddJournal={handleAddJournal}
+      />
+      <ConfirmationPopup
+        show={isConfirmOpen}
+        onClose={() => setConfirmOpen(false)}
+        onConfirm={executeDelete}
+        title="Confirm Deletion"
+        message="Are you sure you want to delete this journal entry? This action cannot be undone."
+        confirmText="Delete"
+        confirmButtonClass="bg-red-600 hover:bg-red-700"
       />
     </>
   );
