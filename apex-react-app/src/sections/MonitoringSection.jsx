@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import flow from '../assets/img/flow.png';
 import MonitorBanner1 from '../assets/img/MonitorBanner/MonitorBanner1.png';
+import MonitorBanner2 from '../assets/img/MonitorBanner/MonitorBanner2.png';
+import MonitorBanner3 from '../assets/img/MonitorBanner/MonitorBanner3.png';
+import MonitorBanner4 from '../assets/img/MonitorBanner/MonitorBanner4.png';
 import icon1 from '../assets/icon/monitor section/1.png';
 import icon2 from '../assets/icon/monitor section/2.png';
 import icon3 from '../assets/icon/monitor section/3.png';
@@ -70,7 +74,11 @@ const monitoringItems = [
     },
   ];
 
+const bannerImages = [MonitorBanner1, MonitorBanner2, MonitorBanner3, MonitorBanner4];
+
 const MonitoringSection = () => {
+    const [activeImage, setActiveImage] = useState(0);
+
     return (
         <div id="monitoring" className="w-full bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,17 +174,23 @@ const MonitoringSection = () => {
             </div>
             <div className="w-full md:w-3/5">
                 <img
-                src={MonitorBanner1}
+                src={bannerImages[activeImage]}
                 alt="Overview Monitoring Tool"
                 className="h-auto w-full object-contain rounded-lg shadow-lg"
                 />
             </div>
             {/* Vertical Dots */}
             <div className="absolute right-6 top-1/2 -translate-y-1/2 flex-col gap-y-3 hidden md:flex">
-              <div className="w-3 h-3 rounded-full bg-[#5244A5]"></div>
-              <div className="w-3 h-3 rounded-full bg-white/60"></div>
-              <div className="w-3 h-3 rounded-full bg-white/60"></div>
-              <div className="w-3 h-3 rounded-full bg-white/60"></div>
+              {bannerImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveImage(index)}
+                  className={`w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
+                    activeImage === index ? 'bg-[#5244A5]' : 'bg-white/60'
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
             </div>
           </motion.div>
         </div>
