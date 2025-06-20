@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
 
 const InfoItem = ({ icon, text, text2 }) => (
   <div className="flex items-start space-x-4">
@@ -70,7 +69,7 @@ const ContactSection = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsError(false);
         setStatus('');
@@ -91,26 +90,19 @@ const ContactSection = () => {
 
         setStatus('กำลังส่ง...');
 
-        // --- PASTE YOUR EMAILJS KEYS HERE ---
-        const SERVICE_ID = 'service_owmvsx9';
-        const TEMPLATE_ID = 'template_cilsbyh';
-        const PUBLIC_KEY = '1RpwBMEUwVDhFD_LO';
-        // ------------------------------------
+        try {
+            const response = await fetch('http://localhost:3001/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-        const templateParams = {
-            from_name: `${formData.firstName} ${formData.lastName}`,
-            reply_to: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            business_type: formData.businessType,
-            service_interest: formData.service,
-            budget: formData.budget,
-            message: `New contact from ${formData.firstName}`
-        };
+            const result = await response.json();
 
-        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
-            .then((response) => {
-                console.log('SUCCESS!', response.status, response.text);
+            if (response.ok) {
+                console.log('SUCCESS!', result.message);
                 setStatus('ส่งข้อมูลเรียบร้อยแล้ว!');
                 setIsError(false);
                 setFormData({
@@ -118,11 +110,16 @@ const ContactSection = () => {
                     company: '', businessType: 'กรุณาระบุ', service: 'กรุณาระบุ',
                     budget: '', consent: false
                 });
-            }, (err) => {
-                console.error('FAILED...', err);
-                setStatus(`เกิดข้อผิดพลาด: ${err.text}`);
+            } else {
+                console.error('FAILED...', result.message);
+                setStatus(`เกิดข้อผิดพลาด: ${result.message}`);
                 setIsError(true);
-            });
+            }
+        } catch (error) {
+            console.error('FAILED...', error);
+            setStatus(`เกิดข้อผิดพลาด: ${error.toString()}`);
+            setIsError(true);
+        }
     };
 
   return (
