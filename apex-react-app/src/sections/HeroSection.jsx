@@ -92,7 +92,7 @@ const HeroSection = () => {
         >
           <motion.img
             src={bg1}
-            alt="พญานาค"
+            alt="bg1"
             className="w-full h-auto object-contain"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaFacebook } from 'react-icons/fa';
 
 const InfoItem = ({ icon, text, text2 }) => (
   <div className="flex items-start space-x-4">
@@ -142,7 +142,11 @@ const ContactSection = () => {
               />
               <InfoItem 
                 icon={<FaEnvelope size={20} />} 
-                text="info@apex-capable.com"
+                text={<a href="mailto:info@apex-capable.com" className="hover:underline">info@apex-capable.com</a>}
+              />
+              <InfoItem 
+                icon={<FaFacebook size={20} />} 
+                text={<a href="https://www.facebook.com/apex.capable.tech/" target="_blank" rel="noopener noreferrer" className="hover:underline">apex.capable.tech</a>}
               />
             </div>
           </div>

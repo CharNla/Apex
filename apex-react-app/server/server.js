@@ -2,6 +2,8 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -70,30 +72,40 @@ app.post('/api/send-email', (req, res) => {
     return res.status(400).json({ message: 'Please fill out all fields.' });
   }
 
-  const mailOptions = {
-    from: process.env.EMAIL_USER, /* email from .env */
-    to: process.env.EMAIL_TO, /* email to .env */
-    replyTo: email,
-    subject: `[Apex Website Contact] - ${service} from ${company}`,
-    html: `
-        <h3>New Contact Form Submission</h3>
-        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Company:</strong> ${company}</p>
-        <p><strong>Business Type:</strong> ${businessType}</p>
-        <p><strong>Service of Interest:</strong> ${service}</p>
-        <p><strong>Budget:</strong> ${budget}</p>
-    `,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-      return res.status(500).json({ message: 'Failed to send email.', error: error.toString() });
+  // Load and populate the email template
+  const templatePath = path.join(__dirname, 'EmailTemplate.txt');
+  fs.readFile(templatePath, 'utf8', (err, htmlTemplate) => {
+    if (err) {
+      console.error('Error reading email template:', err);
+      return res.status(500).json({ message: 'Failed to read email template.' });
     }
-    console.log('Email sent: ' + info.response);
-    res.status(200).json({ message: 'Email sent successfully!' });
+
+    let htmlBody = htmlTemplate;
+    htmlBody = htmlBody.replace('{{from_name}}', `${firstName} ${lastName}`);
+    htmlBody = htmlBody.replace('{{reply_to}}', email);
+    htmlBody = htmlBody.replace('{{phone}}', phone);
+    htmlBody = htmlBody.replace('{{company}}', company);
+    htmlBody = htmlBody.replace('{{business_type}}', businessType);
+    htmlBody = htmlBody.replace('{{service_interest}}', service);
+    htmlBody = htmlBody.replace('{{budget}}', budget);
+
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_TO,
+      replyTo: email,
+      subject: `[Apex Website Contact] - ${service} from ${company}`,
+      html: htmlBody,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email:', error);
+        return res.status(500).json({ message: 'Failed to send email.', error: error.toString() });
+      }
+      console.log('Email sent: ' + info.response);
+      res.status(200).json({ message: 'Email sent successfully!' });
+    });
   });
 });
 

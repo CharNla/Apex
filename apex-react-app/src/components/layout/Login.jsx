@@ -36,7 +36,7 @@ const Login = ({ show, onClose, onLoginSuccess }) => {
     setError('');
     setIsSuccess(false);
 
-    if (username === 'admin' && password === '04123') {
+    if (username === 'admin@apex.com' && password === '111111') {
       console.log('Login successful as admin');
       setIsSuccess(true);
       setTimeout(() => {
