@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import banner1 from '../assets/img/Banner/banner1.png';
 import banner2 from '../assets/img/Banner/banner2.png';
 import banner3 from '../assets/img/Banner/banner3.png';
-import bg1 from '../assets/img/พื้นหลังพญานาค.png';
+import bg1 from '../assets/img/bg1.png';
 import ApexCircle from '../components/ui/Apexcircle';
 
 const ITInfrastructureSection = lazy(() => import('./ITInfrastructureSection'));
