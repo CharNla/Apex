@@ -1,0 +1,15 @@
+# Git
+.git
+.gitignore
+
+# node_modules
+node_modules
+apex-react-app/node_modules
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Build artifacts
+apex-react-app/dist
+npm-debug.log 

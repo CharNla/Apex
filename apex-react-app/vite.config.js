@@ -4,7 +4,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Apex/',
+  base: './',
   plugins: [
     react(),
     ViteImageOptimizer({
