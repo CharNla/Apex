@@ -28,9 +28,9 @@ const serviceData = [
   {
     title: 'บริการเสริมอื่น ๆ',
     details: [
-      'ให้คำปรึกษาด้านเทคนิค (Technical Consulting)',
-      'ปรับปรุงและเพิ่มประสิทธิภาพระบบเดิม (System Revamp & Optimization)',
-      'บริการด้าน Cloud (Cloud Service & Migration)',
+      'จดโดเมน & บริการ Hosting / Cloud Server',
+      'Updateและดูแลระบบหลังบ้าน',
+      'ออกแบบโลโก้ แบนเนอร์ และองค์ประกอบกราฟิกในเว็บไซต์',
     ],
   },
 ];
